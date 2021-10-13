@@ -10,7 +10,7 @@ public class Level
     protected int[] tilesInt;
     protected int[] tiles;
 
-    public static Level spawn = new SpawnLevel("resources/levels/spawn.png");
+    public static Level spawn = new SpawnLevel("resources/levels/Level_4.png");     //spawn.png");
     public static Level random = new RandomLevel(256,256);
 
     public Level(int width, int height)
