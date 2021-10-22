@@ -1,8 +1,11 @@
 package com.company.entity.mob;
 
+import com.company.Main;
+import com.company.entity.projectiles.Projectile;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
 import com.company.input.Keyboard;
+import com.company.input.Mouse;
 import com.company.level.Level;
 
 public class Player extends Mob
@@ -10,7 +13,8 @@ public class Player extends Mob
     private int anim = 0;
     private boolean walking = false;
     private int SPEED = 2;
-    private Keyboard input;
+    private Keyboard input_k;
+
     private Sprite sprite = Sprite.player_S;
 
 
@@ -18,14 +22,14 @@ public class Player extends Mob
     {
         this.x = x;
         this.y = y;
-        this.input = input;
+        this.input_k = input;
 
     }
     public Player(Keyboard input)
     {
         x = 0;
         y = 0;
-        this.input = input;
+        this.input_k = input;
     }
 
     public void update()
@@ -33,10 +37,11 @@ public class Player extends Mob
 
         int xa = 0, ya =0;
 
-        if(input.up)ya = ya - SPEED;
-        if(input.down) ya = ya + SPEED;
-        if(input.right) xa = xa + SPEED;
-        if(input.left) xa = xa - SPEED;
+        if(input_k.up)ya = ya - SPEED;
+        if(input_k.down) ya = ya + SPEED;
+        if(input_k.right) xa = xa + SPEED;
+        if(input_k.left) xa = xa - SPEED;
+
 
         if(xa != 0 || ya != 0)
         {
@@ -47,6 +52,31 @@ public class Player extends Mob
 
         if(xa != 0 || ya != 0) move(xa,ya);
 
+        clear();
+        updateShooting();
+    }
+    private void clear()
+    {
+        for(int i = 0; i < level.getProjectiles().size(); i ++)
+        {
+            Projectile p = level.getProjectiles().get(i);
+            if(p.isRemoved())
+            {
+                level.getProjectiles().remove(i);
+            }
+        }
+    }
+
+    private void updateShooting()
+    {
+        if(Mouse.getButton() == 1)
+        {
+            double dx = Mouse.getX() - ((Main.getWindowWidth() /2) );//+ 12); // width * scale
+            double dy = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) / 2) );//+ 12);
+            double dir = Math.atan2(dy,dx);
+
+            shoot(x,y,dir); // from where, to where
+        }
     }
 
     public void render(Screen screen)
@@ -54,7 +84,7 @@ public class Player extends Mob
         if(anim < 1000) {anim++;}
         else{anim = 0;}
 
-            /*
+    /*
      0 - N
      1 - E
      2 - S

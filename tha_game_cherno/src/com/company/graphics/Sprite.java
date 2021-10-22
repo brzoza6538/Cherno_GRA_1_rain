@@ -36,6 +36,11 @@ public class Sprite
     public static Sprite player_S_l = new Sprite(32,0,7, SpriteSheet.tiles);
     public static Sprite player_E_l = new Sprite(32,3,7, SpriteSheet.tiles);
 
+/////////////////////////////////////////projecitles
+
+    public static Sprite spell_projetile = new Sprite(16,0,0, SpriteSheet.spell_projetiles);
+
+
     public Sprite(int size, int color)
     {
         this.SIZE = size;

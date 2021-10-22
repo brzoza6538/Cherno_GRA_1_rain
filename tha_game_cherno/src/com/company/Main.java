@@ -26,9 +26,9 @@ public class Main extends Canvas implements Runnable
 
     private static final long serialVersionUID = 1L;
     public static String title = "Rain";
-    public static int width = 500;
-    public static int height = width / 16 * 9; //  168
-    public static int scale = 2;
+    private static int width = 500;
+    private static int height = width / 16 * 9; //  168
+    private static int scale = 2;
 
     // wielkosc zrobimy na scale * width pixeli ale poniewaz nie uzywamy karty graficznej pracujemy na width pixeli
 
@@ -165,6 +165,7 @@ public class Main extends Canvas implements Runnable
     {
         key.update();
         player.update();
+        level.update();
     }
     public void render()
     {
@@ -185,6 +186,7 @@ public class Main extends Canvas implements Runnable
         int yScroll = player.y - screen.height / 2;
         level.render(xScroll, yScroll,screen);
         player.render(screen);
+
         screen.renderFrame();
 
         for (int i =0; i < pixels.length;i++)
@@ -227,6 +229,12 @@ public class Main extends Canvas implements Runnable
         //bufferswapping / blitting
         // buffer - temporary storage in RAM
         bs.show(); // pokaze kolejny przygotowywany buffer
+    }
+
+    public static int getWindowWidth()
+    {
+        return width * scale;
+
     }
 
 }

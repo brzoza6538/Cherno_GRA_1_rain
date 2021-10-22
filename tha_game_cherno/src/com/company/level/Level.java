@@ -1,8 +1,12 @@
 package com.company.level;
 
+import com.company.entity.Entity;
+import com.company.entity.projectiles.Projectile;
 import com.company.graphics.Screen;
 import com.company.level.tile.Tile;
 import com.company.level.tile.VoidTile;
+
+import java.util.*;
 
 public class Level
 {
@@ -10,8 +14,11 @@ public class Level
     protected int[] tilesInt;
     protected int[] tiles;
 
+    private List<Entity> entities = new ArrayList<Entity>();
+    private List<Projectile> projectiles = new ArrayList<Projectile>();
+
     public static Level spawn = new SpawnLevel("resources/levels/Level_4.png");     //spawn.png");
-    public static Level random = new RandomLevel(256,256);
+    //public static Level random = new RandomLevel(256,256);
 
     public Level(int width, int height)
     {
@@ -47,10 +54,22 @@ public class Level
 
     }
 
+    public List<Projectile> getProjectiles()
+    {
+        return projectiles;
+    }
 
     public void update()
     {
+        for(int i = 0; i < entities.size(); i++)
+        {
+            entities.get(i).update();
+        }
 
+        for(int i = 0; i < projectiles.size(); i++)
+        {
+            projectiles.get(i).update();
+        }
     }
     private void time()
     {
@@ -74,8 +93,27 @@ public class Level
                 getTile(x,y).render(x,y,screen);
             }
         }
+
+        for(int i = 0; i < entities.size(); i++)
+        {
+            entities.get(i).render(screen);
+        }
+
+        for(int i = 0; i < projectiles.size(); i++)
+        {
+            projectiles.get(i).render(screen);
+        }
     }
 
+    public void add(Entity e)
+    {
+        entities.add(e);
+    }
+
+    public void addProjectile (Projectile p)
+    {
+        projectiles.add(p);
+    }
 
     public Tile getTile(int x, int y)
     {

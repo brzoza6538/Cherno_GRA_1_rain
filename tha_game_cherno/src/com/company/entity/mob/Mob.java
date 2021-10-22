@@ -1,8 +1,13 @@
 package com.company.entity.mob;
 
 import com.company.entity.Entity;
+import com.company.entity.projectiles.Projectile;
+import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.graphics.Sprite;
 import com.company.level.Level;
+
+import java.security.spec.RSAOtherPrimeInfo;
+import java.util.*;
 
 public abstract class Mob extends Entity
 {
@@ -75,7 +80,13 @@ public abstract class Mob extends Entity
         return solid;
     }
 
+    protected void shoot(int x, int y, double dir)
+    {
+        //dir = dir * 180 / Math.PI;
+        Projectile p = new SpellProjectile_1(x,y,dir);
 
+        level.addProjectile(p);
+    }
 
 
 }

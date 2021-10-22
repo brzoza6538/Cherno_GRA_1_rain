@@ -1,6 +1,7 @@
 package com.company.graphics;
 
 import com.company.entity.mob.Player;
+import com.company.entity.projectiles.Projectile;
 import com.company.level.tile.Tile;
 
 import java.awt.*;
@@ -92,6 +93,42 @@ public class Screen
                 if(col != 0xffff00ff)
                 {
                     pixels[xa + ya * width] = tile.sprite.pixels[xs + ys * tile.sprite.SIZE];
+                }
+
+            }
+        }
+    }
+
+    public void renderProjectile(int xp, int yp, Projectile p)
+    {
+        boolean x_f = false, y_f = false; //flip
+
+        // y - pozycja do renderowania
+        //ya - pozycja absolutna
+        //yp - lokacja na mapie
+        xp -= xOffset;
+        yp -= yOffset;
+
+        for(int y = 0; y < p.getSpriteSize(); y++)
+        {
+            int ya = yp + y;
+            int ys = y;
+            if(y_f){ys = p.getSpriteSize() - 1 - y;}
+
+            for(int x = 0; x < p.getSpriteSize(); x++)
+            {
+                int xa = xp + x;
+                int xs = x;
+                if(x_f){xs = p.getSpriteSize() - 1 - x;}
+
+                if(xa <  -p.getSpriteSize() || xa >= width   || ya < -p.getSpriteSize() || ya >= height )  break; // render what is visible
+                if(xa < 0) xa = 0;
+                if(ya < 0) ya = 0;
+
+                int col = p.getSprite().pixels[xs + ys * p.getSpriteSize()];
+                if(col != 0xffff00ff)
+                {
+                    pixels[xa + ya * width] = p.getSprite().pixels[xs + ys * p.getSpriteSize()];
                 }
 
             }
