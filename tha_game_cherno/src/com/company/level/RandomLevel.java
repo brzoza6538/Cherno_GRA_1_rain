@@ -84,7 +84,8 @@ public class RandomLevel extends Level // nie ma default pustego constructora = 
     public Tile getTile(int x, int y)
     {
 
-        tilesInt[0] = 4;
+        tilesInt[width] = 4; // kałuża
+
         if (x < 0 || y < 0 || x >= width || y >= height) {return Tile.voidTile;}
 
         else if(tilesInt[x+y * width] == 0) {return Tile.spawn_rock_1;}
