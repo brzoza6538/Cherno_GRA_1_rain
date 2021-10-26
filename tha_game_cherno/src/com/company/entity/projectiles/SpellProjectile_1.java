@@ -29,7 +29,7 @@ public class SpellProjectile_1 extends Projectile
     {
         if(  level.tileCollision(x,y,nx,0,16) )
         {
-            TTL = TTL *  (random.nextInt(20) + 10)/ 100;
+            //TTL = TTL *  (random.nextInt(20) + 10)/ 100;
             speed =  speed * 9 /10;
             angle = Math.PI  - angle;
             damage = damage * 7/10;
@@ -40,7 +40,7 @@ public class SpellProjectile_1 extends Projectile
 
         if(  level.tileCollision(x,y,0,ny,16) )
         {
-            TTL = TTL *  (random.nextInt(20) + 10)/ 100;
+            //TTL = TTL *  (random.nextInt(20) + 10)/ 100;
             speed = speed * 9 /10;
             angle = Math.PI *2 - angle;
             damage = damage * 7/10;
