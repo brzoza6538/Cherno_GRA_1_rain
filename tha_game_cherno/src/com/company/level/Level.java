@@ -146,7 +146,8 @@ public class Level
 
         for(int c = 0; c< 4; c++)
         {
-            double xt = ((x + xa) + c % 2 * (size - 2) - 11) / 16 ;
+
+            double xt = ((x + xa) + c % 2 * (size - 2) - 9) / 16 ;
             double yt = ((y + ya) + c / 2 * (size - 10) + 4) / 16 ;
 
             if(getTile((int)xt,(int)yt).solid())

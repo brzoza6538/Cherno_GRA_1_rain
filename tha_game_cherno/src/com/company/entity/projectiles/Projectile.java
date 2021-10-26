@@ -23,8 +23,8 @@ public abstract class Projectile extends Entity
 
     public Projectile(int x, int y, double dir)
     {
-        Xorigin = x;
-        Yorigin = y;
+        Xorigin = x ;
+        Yorigin = y ;
         angle = dir;
         this.x = x;
         this.y = y;
