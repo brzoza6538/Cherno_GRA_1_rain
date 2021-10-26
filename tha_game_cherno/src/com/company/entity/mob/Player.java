@@ -2,6 +2,7 @@ package com.company.entity.mob;
 
 import com.company.Main;
 import com.company.entity.projectiles.Projectile;
+import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
 import com.company.input.Keyboard;
@@ -12,8 +13,10 @@ public class Player extends Mob
 {
     private int anim = 0;
     private boolean walking = false;
-    private int SPEED = 3;
+    private int SPEED = 2;
     private Keyboard input_k;
+
+    private int fireRate = 0;
 
     private Sprite sprite = Sprite.player_S;
 
@@ -24,16 +27,23 @@ public class Player extends Mob
         this.y = y;
         this.input_k = input;
 
+        fireRate = SpellProjectile_1.FIRE_RATE;
     }
     public Player(Keyboard input)
     {
         x = 0;
         y = 0;
         this.input_k = input;
+        fireRate = SpellProjectile_1.FIRE_RATE;
+
     }
 
     public void update()
     {
+        if(fireRate > 0)
+        {
+            fireRate -- ;
+        }
 
         int xa = 0, ya =0;
 
@@ -69,13 +79,14 @@ public class Player extends Mob
 
     private void updateShooting()
     {
-        if(Mouse.getButton() == 1)
+        if(Mouse.getButton() == 1 && fireRate <= 0)
         {
             double dx = Mouse.getX() - ((Main.getWindowWidth() /2) );//+ 12); // width * scale
             double dy = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) / 2) );//+ 12);
             double dir = Math.atan2(dy,dx);
 
             shoot(x,y,dir); // from where, to where
+            fireRate = SpellProjectile_1.FIRE_RATE;
         }
     }
 

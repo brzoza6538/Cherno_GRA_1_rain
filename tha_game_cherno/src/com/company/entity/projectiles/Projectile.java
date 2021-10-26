@@ -12,10 +12,12 @@ public abstract class Projectile extends Entity
     protected Sprite sprite;
     protected double nx,ny;
     protected double speed;
-    protected double rateOfFire;
     protected double damage;
     protected double range;
+    protected double TTL;
+
     protected double x,y;
+    protected int inverted = 1;
 
     protected final Random random = new Random();
 

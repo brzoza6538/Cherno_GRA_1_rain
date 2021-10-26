@@ -112,6 +112,7 @@ public class Level
 
     public void addProjectile (Projectile p)
     {
+        p.init(this);
         projectiles.add(p);
     }
 
@@ -136,4 +137,25 @@ public class Level
     {
 
     }
+
+    public boolean tileCollision(double x, double y, double xa, double ya , int size)
+    {
+        //System.out.println(level.getTile(((x+xa)/16),((y+ya+10)/16)).Name() + " == " +  ((x+xa)/16) + " == " + (y+ya+10)/16);
+
+        boolean solid = false;
+
+        for(int c = 0; c< 4; c++)
+        {
+            double xt = ((x + xa) + c % 2 * (size - 2) - 11) / 16 ;
+            double yt = ((y + ya) + c / 2 * (size - 10) + 4) / 16 ;
+
+            if(getTile((int)xt,(int)yt).solid())
+            {
+                solid = true;
+            }
+
+        }
+        return solid;
+    }
 }
+
