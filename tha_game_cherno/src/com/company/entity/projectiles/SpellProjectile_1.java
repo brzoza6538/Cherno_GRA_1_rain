@@ -12,7 +12,7 @@ public class SpellProjectile_1 extends Projectile
         //angle = angle - ( (double)random.nextInt(10) / 100) + (double)5/100;
 
         //range = random.nextInt(50) + 300;
-        TTL = random.nextInt(50) + 150;
+        TTL = random.nextInt(50) + 250;
         damage = 20;
         speed = 3.5;
         sprite = Sprite.spell_projetile;
