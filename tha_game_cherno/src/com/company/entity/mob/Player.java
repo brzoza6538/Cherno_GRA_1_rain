@@ -13,7 +13,7 @@ public class Player extends Mob
 {
     private int anim = 0;
     private boolean walking = false;
-    private int SPEED = 3;
+    private int SPEED = 2;
     private Keyboard input_k;
 
     private int fireRate = 0;
