@@ -1,5 +1,6 @@
 package com.company.entity.projectiles;
 
+import com.company.Main;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
 
@@ -14,7 +15,7 @@ public class SpellProjectile_1 extends Projectile
         //range = random.nextInt(50) + 300;
         TTL = random.nextInt(50) + 250;
         damage = 20;
-        speed = 3.5;
+        speed = 2.5;
         sprite = Sprite.spell_projetile;
         nx = Math.cos(angle) * speed;
         ny = Math.sin(angle) * speed;
@@ -29,7 +30,7 @@ public class SpellProjectile_1 extends Projectile
     {
         if(  level.tileCollision(x,y,nx,0,16) )
         {
-            //TTL = TTL *  (random.nextInt(20) + 10)/ 100;
+            TTL = TTL *  (random.nextInt(20) + 10)/ 100;
             speed =  speed * 9 /10;
             angle = Math.PI  - angle;
             damage = damage * 7/10;
@@ -40,7 +41,7 @@ public class SpellProjectile_1 extends Projectile
 
         if(  level.tileCollision(x,y,0,ny,16) )
         {
-            //TTL = TTL *  (random.nextInt(20) + 10)/ 100;
+            TTL = TTL *  (random.nextInt(20) + 10)/ 100;
             speed = speed * 9 /10;
             angle = Math.PI *2 - angle;
             damage = damage * 7/10;
@@ -66,7 +67,8 @@ public class SpellProjectile_1 extends Projectile
 
     public void render(Screen screen)
     {
-        screen.renderProjectile((int)x - 8,(int)y, this); // dla 16x16
+
+        screen.renderProjectile((int)x - 8,(int)y - 8, this); // dla 16x16
 
     }
 

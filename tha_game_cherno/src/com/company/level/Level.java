@@ -17,7 +17,7 @@ public class Level
     private List<Entity> entities = new ArrayList<Entity>();
     private List<Projectile> projectiles = new ArrayList<Projectile>();
 
-    public static Level spawn = new SpawnLevel("resources/levels/spawn.png");     //spawn.png");
+    public static Level spawn = new SpawnLevel("resources/levels/level_4.png");     //spawn.png");
     public static Level random = new RandomLevel(256,256);
 
     public Level(int width, int height)
@@ -147,8 +147,8 @@ public class Level
         for(int c = 0; c< 4; c++)
         {
 
-            double xt = ((x + xa) + c % 2 * (size - 2) - 9) / 16 ;
-            double yt = ((y + ya) + c / 2 * (size - 10) + 4) / 16 ;
+            double xt = ((x + xa) + c % 2 * (size - 8) - 5) / 16 ;
+            double yt = ((y + ya) + c / 2 * (size - 10) - 4) / 16 ;
 
             if(getTile((int)xt,(int)yt).solid())
             {
