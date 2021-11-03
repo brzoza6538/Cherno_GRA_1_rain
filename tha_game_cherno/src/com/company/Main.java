@@ -26,9 +26,9 @@ public class Main extends Canvas implements Runnable
 
     private static final long serialVersionUID = 1L;
     public static String title = "Rain";
-    private static int width = 500;
+    private static int width = 300;
     private static int height = width / 16 * 9; //  168
-    private static int scale = 2;
+    private static int scale = 3;
 
     // wielkosc zrobimy na scale * width pixeli ale poniewaz nie uzywamy karty graficznej pracujemy na width pixeli
 
@@ -68,7 +68,7 @@ public class Main extends Canvas implements Runnable
         addMouseMotionListener(mouse);
 
         level = Level.spawn; // mozna zmienic "random" || "spawn"
-        TileCoordinate playerspawn = new TileCoordinate( 5,5); //30,28); - wartosci dla spawn // 0,1); - dla random
+        TileCoordinate playerspawn = new TileCoordinate( 30,28); //30,28); - wartosci dla spawn // 0,1); - dla random
         player = new Player(playerspawn.X(),playerspawn.Y(), key);
         player.init(level);
     }
