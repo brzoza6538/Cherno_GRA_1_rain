@@ -81,11 +81,12 @@ public class Player extends Mob
     {
         if(Mouse.getButton() == 1 && fireRate <= 0)
         {
-            double dx = Mouse.getX() - ((Main.getWindowWidth() /2) );//+ 12); // width * scale
-            double dy = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) / 2) );//+ 12);
+            double dx = Mouse.getX() - ((Main.getWindowWidth() ) /2) + (8 * Main.getScale() );//+ 12); // width * scale
+
+            double dy = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) ) / 2)  - (4 * Main.getScale() );//+ 12);
             double dir = Math.atan2(dy,dx);
 
-            shoot(x,y,dir); // from where, to where
+            shoot(x - 8,y + 4,dir); // from where, to where
             fireRate = SpellProjectile_1.FIRE_RATE;
         }
     }

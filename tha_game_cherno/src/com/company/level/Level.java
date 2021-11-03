@@ -17,7 +17,7 @@ public class Level
     private List<Entity> entities = new ArrayList<Entity>();
     private List<Projectile> projectiles = new ArrayList<Projectile>();
 
-    public static Level spawn = new SpawnLevel("resources/levels/level_4.png");     //spawn.png");
+    public static Level spawn = new SpawnLevel("resources/levels/spawn.png");     //spawn.png");
     public static Level random = new RandomLevel(256,256);
 
     public Level(int width, int height)
