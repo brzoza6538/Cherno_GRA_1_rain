@@ -13,7 +13,6 @@ public abstract class Projectile extends Entity
     protected double nx,ny;
     protected double speed;
     protected double damage;
-    protected double range;
     protected double TTL;
 
     protected double x,y;

@@ -3,6 +3,7 @@ package com.company.entity.mob;
 import com.company.entity.Entity;
 import com.company.entity.projectiles.Projectile;
 import com.company.entity.projectiles.SpellProjectile_1;
+import com.company.entity.projectiles.SpellProjectile_2;
 import com.company.graphics.Sprite;
 import com.company.level.Level;
 
@@ -61,8 +62,8 @@ public abstract class Mob extends Entity
 
         for(int c = 0; c< 4; c++)
         {
-            int xt = ((x + xa) + c % 2 * 12 - 7) / 16 ;
-            int yt = ((y + ya) + c / 2 * 12 + 2) / 16 ;
+            int xt = ((x + xa) + c % 2 * 11 - 6) / 16 ;
+            int yt = ((y + ya) + c / 2 * 17 - 3) / 16 ;
 
             if(level.getTile(xt,yt).solid())
             {
@@ -80,10 +81,17 @@ public abstract class Mob extends Entity
         return solid;
     }
 
-    protected void shoot(int x, int y, double dir)
+    protected void shoot_1(int x, int y, double dir)
     {
         //dir = dir * 180 / Math.PI;
         Projectile p = new SpellProjectile_1(x,y,dir);
+
+        level.addProjectile(p);
+    }
+    protected void shoot_2(int x, int y, double dir)
+    {
+        //dir = dir * 180 / Math.PI;
+        Projectile p = new SpellProjectile_2(x,y,dir);
 
         level.addProjectile(p);
     }

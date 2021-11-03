@@ -38,7 +38,8 @@ public class Sprite
 
 /////////////////////////////////////////projecitles
 
-    public static Sprite spell_projetile = new Sprite(16,0,0, SpriteSheet.spell_projetiles);
+    public static Sprite spell_projetile_1 = new Sprite(16,0,0, SpriteSheet.spell_projetiles);
+    public static Sprite spell_projetile_2 = new Sprite(16,1,0, SpriteSheet.spell_projetiles);
 
 
     public Sprite(int size, int color)

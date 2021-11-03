@@ -4,17 +4,17 @@ import com.company.Main;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
 
-public class SpellProjectile_1 extends Projectile
+public class SpellProjectile_2 extends Projectile
 {
-    public static final int FIRE_RATE = 10; //czas pomiedzy strzalami
+    public static final int FIRE_RATE = 25; //czas pomiedzy strzalami
 
-    private static final int SIZE = 6;
+    private static final int SIZE = 16;
 
-    private static final int size = ((SIZE - 3));
+    private static final int size = ((SIZE - 8));
+    private static final int off = 3;
 
-    private static final int off = 6;
 
-    public SpellProjectile_1 (int x, int y, double dir)
+    public SpellProjectile_2 (int x, int y, double dir)
     {
         super(x,y,dir);
         //angle = angle - ( (double)random.nextInt(10) / 100) + (double)5/100;
@@ -22,7 +22,7 @@ public class SpellProjectile_1 extends Projectile
         TTL = random.nextInt(30) + 120;
         damage = 20;
         speed = 2.8;
-        sprite = Sprite.spell_projetile_1;
+        sprite = Sprite.spell_projetile_2;
         nx = Math.cos(angle) * speed;
         ny = Math.sin(angle) * speed;
 
@@ -63,7 +63,7 @@ public class SpellProjectile_1 extends Projectile
 
         if(TTL <= 0)
         {
-           remove();
+            remove();
         }
         TTL -= 1;
     }
@@ -76,7 +76,7 @@ public class SpellProjectile_1 extends Projectile
     public void render(Screen screen)
     {
 
-        screen.renderProjectile((int)x,(int)y, this); // dla 16x16
+        screen.renderProjectile((int)x,(int)y , this); // dla 16x16
 
     }
 

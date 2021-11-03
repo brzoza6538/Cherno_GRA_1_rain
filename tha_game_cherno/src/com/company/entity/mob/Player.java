@@ -3,6 +3,7 @@ package com.company.entity.mob;
 import com.company.Main;
 import com.company.entity.projectiles.Projectile;
 import com.company.entity.projectiles.SpellProjectile_1;
+import com.company.entity.projectiles.SpellProjectile_2;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
 import com.company.input.Keyboard;
@@ -79,15 +80,23 @@ public class Player extends Mob
 
     private void updateShooting()
     {
-        if(Mouse.getButton() == 1 && fireRate <= 0)
+        if( (Mouse.getButton() == 1 || Mouse.getButton() == 3) && fireRate <= 0)
         {
-            double dx = Mouse.getX() - ((Main.getWindowWidth() ) /2) + (8 * Main.getScale() );//+ 12); // width * scale
-
-            double dy = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) ) / 2)  - (4 * Main.getScale() );//+ 12);
+            double dx = Mouse.getX() - ((Main.getWindowWidth() /2)) ; //+ (4 * Main.getScale() ); // width * scale
+            double dy = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) / 2)) - (4 * Main.getScale() ); //- (4 * Main.getScale() );
             double dir = Math.atan2(dy,dx);
 
-            shoot(x - 8,y + 4,dir); // from where, to where
-            fireRate = SpellProjectile_1.FIRE_RATE;
+            //shoot(x - 4,y + 4,dir);
+            if( Mouse.getButton() == 1)
+            {
+                shoot_1(x - 8,y - 4,dir); // from where, to where   /musisz skonczyc na - 8 - 8
+                fireRate = SpellProjectile_1.FIRE_RATE;
+            }
+            if( Mouse.getButton() == 3)
+            {
+                shoot_2(x -8,y -4,dir);
+                fireRate = SpellProjectile_2.FIRE_RATE;
+            }
         }
     }
 
