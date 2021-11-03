@@ -26,7 +26,7 @@ public class Main extends Canvas implements Runnable
 
     private static final long serialVersionUID = 1L;
     public static String title = "Rain";
-    private static int width = 300;
+    private static int width = 400;
     private static int height = width / 16 * 9; //  168
     private static int scale = 3;
 

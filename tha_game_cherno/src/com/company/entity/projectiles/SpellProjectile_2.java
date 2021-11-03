@@ -19,7 +19,7 @@ public class SpellProjectile_2 extends Projectile
         super(x,y,dir);
         //angle = angle - ( (double)random.nextInt(10) / 100) + (double)5/100;
 
-        TTL = random.nextInt(30) + 120;
+        TTL = random.nextInt(10) + 100;
         damage = 20;
         speed = 2.3;
         sprite = Sprite.spell_projetile_2;
