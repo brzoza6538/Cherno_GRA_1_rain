@@ -21,7 +21,7 @@ public class SpellProjectile_1 extends Projectile
 
         TTL = random.nextInt(30) + 120;
         damage = 20;
-        speed = 2.8;
+        speed = 3.3;
         sprite = Sprite.spell_projetile_1;
         nx = Math.cos(angle) * speed;
         ny = Math.sin(angle) * speed;
