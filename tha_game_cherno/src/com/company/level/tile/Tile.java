@@ -51,5 +51,10 @@ public class Tile
     {
         return false; // default
     }
+    public boolean shootable_through()
+    {
+        return true; // default
+    }
+
 
 }

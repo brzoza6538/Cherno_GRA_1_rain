@@ -20,6 +20,11 @@ public class Rock_1Tile extends Tile
         return true;
     }
 
+    public boolean shootable_through()
+    {
+        return false;
+    }
+
     public boolean breakable()
     {
         return true;

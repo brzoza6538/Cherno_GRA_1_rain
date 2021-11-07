@@ -36,7 +36,7 @@ public class SpellProjectile_2 extends Projectile
 
     protected void move()
     {
-        if(  level.tileCollision(x,y,nx,0,size,off) )
+        if(  level.projectileCollision(x,y,nx,0,size,off) )
         {
             TTL = TTL *  (random.nextInt(8) + 7)/ 100;
             speed =  speed * 5 / 10;
@@ -47,7 +47,7 @@ public class SpellProjectile_2 extends Projectile
             ny = Math.sin(angle) * speed;
         }
 
-        if(  level.tileCollision(x,y,0,ny,size,off) )
+        if(  level.projectileCollision(x,y,0,ny,size,off) )
         {
             TTL = TTL *  (random.nextInt(8) + 7)/ 100;
             speed = speed   * 5 / 10;

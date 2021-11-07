@@ -24,7 +24,6 @@ public class RandomLevel extends Level // nie ma default pustego constructora = 
             for(int x = 0 ; x < width; x++)
             {
                 tilesInt[x + y*width]  = random.nextInt(8); // 0-3
-
             }
         }
     }
@@ -106,7 +105,6 @@ public class RandomLevel extends Level // nie ma default pustego constructora = 
             for(int x = 0 ; x < width; x++)
             {
                 tilesInt[x + y*width]  = random.nextInt(500)+1; // 0-3
-
             }
         }
     }

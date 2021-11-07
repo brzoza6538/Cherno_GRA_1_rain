@@ -17,7 +17,12 @@ public class VoidTile extends Tile {
 
     public boolean solid()
     {
-        return false;
+        return true;
+    }
+
+    public boolean shootable_through()
+    {
+        return true;
     }
 
     public boolean breakable()

@@ -17,7 +17,7 @@ public class Level
     private List<Entity> entities = new ArrayList<Entity>();
     private List<Projectile> projectiles = new ArrayList<Projectile>();
 
-    public static Level spawn = new SpawnLevel("resources/levels/level_4.png");     //spawn.png");
+    public static Level spawn = new SpawnLevel("resources/levels/level_2.png");     //spawn.png");
     public static Level random = new RandomLevel(256,256);
 
     public Level(int width, int height)
@@ -138,7 +138,7 @@ public class Level
 
     }
 
-    public boolean tileCollision(double x, double y, double xa, double ya , int size, int off)
+    public boolean projectileCollision(double x, double y, double xa, double ya , int size, int off)
     {
         //System.out.println(level.getTile(((x+xa)/16),((y+ya+10)/16)).Name() + " == " +  ((x+xa)/16) + " == " + (y+ya+10)/16);
 
@@ -150,7 +150,7 @@ public class Level
             double xt = ((x + xa) + c % 2 * size + off) / 16 ;
             double yt = ((y + ya) + c / 2 * size + off) / 16 ;
 
-            if(getTile((int)xt,(int)yt).solid())
+            if(!getTile((int)xt,(int)yt).shootable_through())
             {
                 solid = true;
             }

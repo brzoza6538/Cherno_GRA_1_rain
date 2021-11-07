@@ -20,6 +20,12 @@ public class FlowerTile extends Tile
             return false;
         }
 
+        public boolean shootable_through()
+        {
+            return true;
+        }
+
+
         public boolean breakable()
         {
             return true;

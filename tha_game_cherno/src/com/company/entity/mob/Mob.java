@@ -72,10 +72,12 @@ public abstract class Mob extends Entity
 
         }
 
-        if(((x+xa - 18)/16 ) < 0  || ((x+xa+18)/16) > level.width || ((y+ya - 16) /16) < 0  || (((y+ya+32)/16) )> level.height)
+
+        if(((x+xa - 20)/16) < 0   || ((y+ya - 14) /16) < 0  )
         {
             solid = true;
         }
+
 
 
         return solid;
