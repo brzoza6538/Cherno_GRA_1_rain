@@ -63,6 +63,15 @@ public class Screen
         }
     }
 
+    public void renderSprite(int xp, int yp, Sprite sprite, boolean fixed)
+    {
+        if(fixed)
+        {
+            xp -= xOffset;
+            yp -= yOffset;
+        }
+
+    }
     public void renderTile(int xp, int yp, Tile tile)
     {
         boolean x_f = false, y_f = false; //flip
