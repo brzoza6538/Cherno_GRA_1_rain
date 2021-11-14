@@ -4,6 +4,7 @@ public class Sprite
 {
     public final int SIZE;
     private int x,y;
+    private int width, height;
     public int[] pixels;
 
     private SpriteSheet sheet;
@@ -40,35 +41,62 @@ public class Sprite
 
     public static Sprite spell_projetile_1 = new Sprite(16,0,0, SpriteSheet.spell_projetiles);
     public static Sprite spell_projetile_2 = new Sprite(16,1,0, SpriteSheet.spell_projetiles);
+/////////////////////////////////////////particles
+    public static Sprite particle_water = new Sprite(2,0x30A8FF);
+    public static Sprite particle_stone = new Sprite(2,0xAAAFAFAB);
 
-
-    public Sprite(int size, int color)
-    {
-        this.SIZE = size;
-        pixels = new int[SIZE * SIZE];
-
-        setColor(color);
-    }
-
-    private void setColor(int color)
-    {
-        for(int i = 0; i < SIZE*SIZE; i++)
-        {
-            pixels[i] = color;
-        }
-
-    }
 
     public Sprite(int size, int x , int y, SpriteSheet sheet)
     {
         this.SIZE = size;
+        this.width = size;
+        this.height = size;
+
         pixels = new int [SIZE*SIZE];
         this.x = x*size;
         this.y = y*size;
         //od kiedy zaczac - wszystko jest podzielone gridem
         this.sheet = sheet;
         load();
+// nie potrzebne width,height,x,y?
+    }
 
+    public Sprite(int size, int color)
+    {
+        this.SIZE = size;
+        this.width = size;
+        this.height = size;
+        pixels = new int[SIZE * SIZE];
+
+        setColor(color);
+    }
+    public Sprite(int width, int height, int color)
+    {
+        SIZE = -1;
+        this.width = width;
+        this.height = height;
+
+        pixels = new int[height * width];
+
+        setColor(color);
+    }
+
+    private void setColor(int color)
+    {
+        for(int i = 0; i < width * height; i++)
+        {
+            pixels[i] = color;
+        }
+    }
+
+    public int getWidth()
+    {
+        return width;
+    }
+
+    public int getHeight()
+    {
+        return height;
     }
 
     private void load()

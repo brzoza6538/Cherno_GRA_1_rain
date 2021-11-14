@@ -3,6 +3,7 @@ package com.company;
 
 import com.company.entity.mob.Player;
 import com.company.graphics.Screen;
+import com.company.graphics.Sprite;
 import com.company.input.Keyboard;
 import com.company.input.Mouse;
 import com.company.level.Level;
@@ -67,8 +68,8 @@ public class Main extends Canvas implements Runnable
         addMouseListener(mouse);
         addMouseMotionListener(mouse);
 
-        level = Level.random; // mozna zmienic "random" || "spawn"
-        TileCoordinate playerspawn = new TileCoordinate( 0,1); //30,28); - wartosci dla spawn // 0,1); - dla random
+        level = Level.spawn; // mozna zmienic "random" || "spawn"
+        TileCoordinate playerspawn = new TileCoordinate( 5,5); //30,28); - wartosci dla spawn // 0,1); - dla random
         player = new Player(playerspawn.X(),playerspawn.Y(), key);
         player.init(level);
     }
@@ -188,6 +189,7 @@ public class Main extends Canvas implements Runnable
         player.render(screen);
 
         screen.renderFrame();
+        screen.renderStats();
 
         for (int i =0; i < pixels.length;i++)
         {
@@ -195,12 +197,13 @@ public class Main extends Canvas implements Runnable
         }
         //pusty triple buffer
 
+
         Graphics g = bs.getDrawGraphics();
 /* - znacząco zrzuca fps */
         g.drawImage (image, 0, 0, getWidth(), getHeight(), null);
-        g.setColor(new Color(0xFFFF0000, true));
+        g.setColor(new Color(0xFFFFFFFF, true));
         g.setFont(new Font("Verdana",1,12));
-        g.drawString("X: " + (player.x - 4) + " Y: " + (player.y + 6) ,(width - 50)*scale - 20,10*scale - 4); // position shower
+        g.drawString("X: " + (player.x - 4) + " Y: " + (player.y + 6) ,(width - 40)*scale - 10,10*scale - 7); // position shower
         //g.drawString("FPS: " + FPS,272*scale,9*scale);
 
         //g.fillRect(Mouse.getX() - 8,Mouse.getY() - 8, 16,16);

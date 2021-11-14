@@ -1,10 +1,10 @@
 package com.company.level;
 
 import com.company.entity.Entity;
+import com.company.entity.particle.Particle;
 import com.company.entity.projectiles.Projectile;
 import com.company.graphics.Screen;
 import com.company.level.tile.Tile;
-import com.company.level.tile.VoidTile;
 
 import java.util.*;
 
@@ -16,6 +16,7 @@ public class Level
 
     private List<Entity> entities = new ArrayList<Entity>();
     private List<Projectile> projectiles = new ArrayList<Projectile>();
+    private List<Particle> particles = new ArrayList<Particle>();
 
     public static Level spawn = new SpawnLevel("resources/levels/level_2.png");     //spawn.png");
     public static Level random = new RandomLevel(1024,1024);
@@ -30,13 +31,13 @@ public class Level
         generateLevel(true ,0,0,width-1,height-1);
 
 
-
     }
 
     public Level(String path)
     {
         loadLevel(path);
         generateLevel();
+
     }
 
     protected void generateLevel()
@@ -69,6 +70,38 @@ public class Level
         for(int i = 0; i < projectiles.size(); i++)
         {
             projectiles.get(i).update();
+        }
+
+        for(int i = 0; i < particles.size(); i++)
+        {
+            particles.get(i).update();
+        }
+        remove();
+    }
+    private void remove()
+    {
+        for(int i = 0; i < entities.size(); i++)
+        {
+            if(entities.get(i).isRemoved())
+            {
+                entities.remove(i);
+            }
+        }
+
+        for(int i = 0; i < projectiles.size(); i++)
+        {
+            if(projectiles.get(i).isRemoved())
+            {
+                projectiles.remove(i);
+            }
+        }
+
+        for(int i = 0; i < particles.size(); i++)
+        {
+            if(particles.get(i).isRemoved())
+            {
+                particles.remove(i);
+            }
         }
     }
     private void time()
@@ -103,18 +136,30 @@ public class Level
         {
             projectiles.get(i).render(screen);
         }
+        for(int i = 0; i < particles.size(); i++)
+        {
+            particles.get(i).render(screen);
+        }
     }
 
     public void add(Entity e)
     {
-        entities.add(e);
+        e.init(this);
+
+        if(e instanceof Particle)
+        {
+            particles.add((Particle)e);
+        }
+        else if(e instanceof Particle)
+        {
+            projectiles.add((Projectile) e);
+        }
+        else
+        {
+            entities.add(e);
+        }
     }
 
-    public void addProjectile (Projectile p)
-    {
-        p.init(this);
-        projectiles.add(p);
-    }
 
     public Tile getTile(int x, int y)
     {
@@ -138,7 +183,7 @@ public class Level
 
     }
 
-    public boolean projectileCollision(double x, double y, double xa, double ya , int size, int off)
+    public boolean Up_TileCollision(int x, int y, int size, int xOffset, int yOffset)
     {
         //System.out.println(level.getTile(((x+xa)/16),((y+ya+10)/16)).Name() + " == " +  ((x+xa)/16) + " == " + (y+ya+10)/16);
 
@@ -146,15 +191,31 @@ public class Level
 
         for(int c = 0; c< 4; c++)
         {
+            int xt = (x + (c % 2 * size) + xOffset) >> 4;
+            int yt = (y + (c / 2 * size) + yOffset) >> 4;
 
-            double xt = ((x + xa) + c % 2 * size + off) / 16 ;
-            double yt = ((y + ya) + c / 2 * size + off) / 16 ;
-
-            if(!getTile((int)xt,(int)yt).shootable_through())
+            if(!getTile(xt,yt).shootable_through())
             {
                 solid = true;
             }
 
+        }
+        return solid;
+    }
+
+    public boolean Down_TileCollision(int x, int y, int size, int xOffset, int yOffset)
+    {
+        boolean solid = false;
+
+        for(int c = 0; c < 4; c++)
+        {
+            int xt = (x - (c % 2 * size) + xOffset) >> 4;
+            int yt = (y - (c / 2 * size) + yOffset) >> 4;
+
+            if(getTile(xt,yt).solid())
+            {
+                solid = true;
+            }
         }
         return solid;
     }

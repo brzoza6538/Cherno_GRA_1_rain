@@ -1,6 +1,8 @@
 package com.company.entity.projectiles;
 
 import com.company.Main;
+import com.company.entity.particle.Particle;
+import com.company.entity.spawner.ParticleSpawner;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
 
@@ -10,8 +12,7 @@ public class SpellProjectile_2 extends Projectile
 
     private static final int SIZE = 16;
 
-    private static final int size = ((SIZE - 8));
-    private static final int off = 3;
+    private static final int offset = 0;
 
 
     public SpellProjectile_2 (int x, int y, double dir)
@@ -36,7 +37,8 @@ public class SpellProjectile_2 extends Projectile
 
     protected void move()
     {
-        if(  level.projectileCollision(x,y,nx,0,size,off) )
+
+        if(  level.Up_TileCollision((int)(x+nx),(int)(y),SIZE,offset,offset) )
         {
             TTL = TTL *  (random.nextInt(8) + 7)/ 100;
             speed =  speed * 5 / 10;
@@ -45,9 +47,19 @@ public class SpellProjectile_2 extends Projectile
 
             nx = Math.cos(angle) * speed;
             ny = Math.sin(angle) * speed;
+
+
+            if(nx < 0 )
+            {
+                level.add(new ParticleSpawner((int)(x + nx + SIZE),(int)(y + ny + SIZE/2),25, Sprite.particle_stone ,  Particle.Dir.LEFT,25,level));
+            }
+            else if (nx > 0)
+            {
+                level.add(new ParticleSpawner((int)(x + nx),(int)(y + ny+ SIZE/2),25, Sprite.particle_stone ,  Particle.Dir.RIGHT,25,level));
+            }
         }
 
-        if(  level.projectileCollision(x,y,0,ny,size,off) )
+        if(  level.Up_TileCollision((int)x,(int)(y+ny),SIZE,offset,offset) )
         {
             TTL = TTL *  (random.nextInt(8) + 7)/ 100;
             speed = speed   * 5 / 10;
@@ -56,6 +68,15 @@ public class SpellProjectile_2 extends Projectile
 
             nx = Math.cos(angle) * speed;
             ny = Math.sin(angle) * speed;
+
+            if(ny > 0 )
+            {
+               level.add(new ParticleSpawner((int)(x + nx + SIZE/2),(int)(y + ny),25, Sprite.particle_stone ,  Particle.Dir.DOWN,25,level));
+            }
+            else if (ny < 0)
+            {
+               level.add(new ParticleSpawner((int)(x + nx + SIZE/2),(int)(y + ny + SIZE),25, Sprite.particle_stone ,  Particle.Dir.UP,25,level));
+            }
         }
 
         x = x + (nx);

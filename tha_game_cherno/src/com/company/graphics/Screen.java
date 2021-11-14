@@ -1,10 +1,12 @@
 package com.company.graphics;
 
+import com.company.Main;
 import com.company.entity.mob.Player;
 import com.company.entity.projectiles.Projectile;
 import com.company.level.tile.Tile;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 //tiles must be squares
 
@@ -63,12 +65,29 @@ public class Screen
         }
     }
 
+    public void renderStats()
+    {
+
+        Sprite sprite = new Sprite(45,90, 0xD900BA); //height - 2 * (screen.FRAME - 1)
+        renderSprite(width - 45 - (FRAME - 1),(FRAME - 1),sprite,false); // fixed - glued to the map
+    }
+
     public void renderSprite(int xp, int yp, Sprite sprite, boolean fixed)
     {
         if(fixed)
         {
             xp -= xOffset;
             yp -= yOffset;
+        }
+        for( int y = 0; y < sprite.getHeight(); y ++)
+        {
+            for (int x = 0; x < sprite.getWidth(); x++)
+            {
+                int xa = x + xp;
+                int ya = y + yp;
+                if(xa < 0 || xa >= width || ya < 0 || ya >= height){continue;}
+                pixels[xa + ya * width] = sprite.pixels[x + y * sprite.getWidth()];
+            }
         }
 
     }
@@ -122,13 +141,19 @@ public class Screen
         {
             int ya = yp + y;
             int ys = y;
-            if(y_f){ys = p.getSpriteSize() - 1 - y;}
+            if(y_f)
+            {
+                ys = p.getSpriteSize() - 1 - y;
+            }
 
             for(int x = 0; x < p.getSpriteSize(); x++)
             {
                 int xa = xp + x;
                 int xs = x;
-                if(x_f){xs = p.getSpriteSize() - 1 - x;}
+                if(x_f)
+                {
+                    xs = p.getSpriteSize() - 1 - x;
+                }
 
                 if(xa <  -p.getSpriteSize() || xa >= width   || ya < -p.getSpriteSize() || ya >= height )  break; // render what is visible
                 if(xa < 0) xa = 0;

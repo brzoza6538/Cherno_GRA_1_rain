@@ -1,6 +1,8 @@
 package com.company.entity.projectiles;
 
-import com.company.Main;
+import com.company.entity.spawner.ParticleSpawner;
+import com.company.entity.spawner.Spawner;
+import com.company.entity.particle.Particle;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
 
@@ -10,22 +12,19 @@ public class SpellProjectile_1 extends Projectile
 
     private static final int SIZE = 6;
 
-    private static final int size = ((SIZE - 3));
-
-    private static final int off = 6;
+    private static final int offset = 5;
 
     public SpellProjectile_1 (int x, int y, double dir)
     {
         super(x,y,dir);
         //angle = angle - ( (double)random.nextInt(10) / 100) + (double)5/100;
 
-        TTL = random.nextInt(10) + 70;
+        TTL = random.nextInt(20) + 70;
         damage = 20;
         speed = 3.3;
         sprite = Sprite.spell_projetile_1;
         nx = Math.cos(angle) * speed;
         ny = Math.sin(angle) * speed;
-
 
     }
 
@@ -36,26 +35,45 @@ public class SpellProjectile_1 extends Projectile
 
     protected void move()
     {
-        if(  level.projectileCollision(x,y,nx,0,size,off) )
+
+        if(  level.Up_TileCollision((int)(x+nx),(int)(y),SIZE,offset,offset) )
         {
-            //TTL = TTL *  (random.nextInt(8) + 7)/ 100;
+            //TTL = TTL *  (random.nextInt(20) + 30)/ 100;
             speed =  speed * 8 / 10;
             angle = Math.PI  - angle;
             damage = damage * 7 / 10;
 
             nx = Math.cos(angle) * speed;
             ny = Math.sin(angle) * speed;
+
+            if(nx < 0 )
+            {
+                level.add(new ParticleSpawner((int)(x + nx + SIZE * 2),(int)(y + ny + SIZE),15, Sprite.particle_stone ,  Particle.Dir.LEFT,15,level));
+            }
+            else if (nx > 0)
+            {
+                level.add(new ParticleSpawner((int)(x + nx),(int)(y + ny+ SIZE),15, Sprite.particle_stone ,  Particle.Dir.RIGHT,15,level));
+            }
         }
 
-        if(  level.projectileCollision(x,y,0,ny,size,off) )
+        if(  level.Up_TileCollision((int)x,(int)(y+ny),SIZE,offset,offset) )
         {
-            //TTL = TTL *  (random.nextInt(8) + 7)/ 100;
+            //TTL = TTL *  (random.nextInt(20) + 30)/ 100;
             speed = speed   * 8 / 10;
             angle = Math.PI * 2 - angle;
             damage = damage * 7 / 10;
 
             nx = Math.cos(angle) * speed;
             ny = Math.sin(angle) * speed;
+
+            if(ny > 0 )
+            {
+                level.add(new ParticleSpawner((int)(x + nx + SIZE),(int)(y + ny),15, Sprite.particle_stone ,  Particle.Dir.DOWN,15,level));
+            }
+            else if (ny < 0)
+            {
+                level.add(new ParticleSpawner((int)(x + nx + SIZE),(int)(y + ny + SIZE * 2),15, Sprite.particle_stone ,  Particle.Dir.UP,15,level));
+            }
         }
 
         x = x + (nx);

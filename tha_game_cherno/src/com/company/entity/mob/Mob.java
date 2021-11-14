@@ -1,14 +1,13 @@
 package com.company.entity.mob;
 
 import com.company.entity.Entity;
+import com.company.entity.spawner.ParticleSpawner;
+import com.company.entity.spawner.Spawner;
+import com.company.entity.particle.Particle;
 import com.company.entity.projectiles.Projectile;
 import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.entity.projectiles.SpellProjectile_2;
 import com.company.graphics.Sprite;
-import com.company.level.Level;
-
-import java.security.spec.RSAOtherPrimeInfo;
-import java.util.*;
 
 public abstract class Mob extends Entity
 {
@@ -38,10 +37,18 @@ public abstract class Mob extends Entity
         {
             x += xa;
         }
+
         if(! collision(0,ya))
         {
             y += ya;
         }
+
+        if(waterCheck(xa,ya))
+        {
+            level.add(new ParticleSpawner((x + xa),(y + ya) + 16 ,20, Sprite.particle_water , Particle.Dir.ZERO,2,level));
+        }
+
+
     }
 
     public void update()
@@ -54,28 +61,48 @@ public abstract class Mob extends Entity
 
     }
 
+    private boolean waterCheck(int xa, int ya)
+    {
+        boolean water = false;
+
+        for(int c = 0; c< 4; c++)
+        {
+
+            int xt = ((x + xa) + c % 2 * 3 - 1) / 16 ;
+            int yt = ((y + ya) + c / 2 * 3 + 16 ) / 16 ;
+
+            if(level.getTile(xt,yt).Name() == "PuddleTile"  && (((x + xa) % 16 >= 3 && (x + xa) % 16 <= 11) && ((y + ya) % 16 >= 3 && (y + ya) % 16 <= 11)))
+            {
+                //level.add(new Spawner((xt)*16 + 8,(yt)*16 - 8,Spawner.Type.PARTICLE, 10,level));
+                water = true;
+            }
+        }
+        return water;
+    }
     private boolean collision(int xa, int ya)
     {
         //System.out.println(level.getTile(((x+xa)/16),((y+ya+10)/16)).Name() + " == " +  ((x+xa)/16) + " == " + (y+ya+10)/16);
 
-        boolean solid = false;
+            boolean solid = false;
+
 
         for(int c = 0; c< 4; c++)
         {
-            int xt = ((x + xa) + c % 2 * 11 - 6) / 16 ;
-            int yt = ((y + ya) + c / 2 * 14 - 0) / 16 ;
+            int xt = ((x + xa) + c % 2 * 15 - 8) / 16 ;
+            int yt = ((y + ya) + c / 2 * 18 - 3) / 16 ;
 
             if(level.getTile(xt,yt).solid())
             {
                 solid = true;
+
             }
 
         }
 
 
-        if(((x+xa - 20)/16) < 0   || ((y+ya - 14) /16) < 0  )
+        if(((x+xa - 21)/16) < 0   || ((y+ya - 17) /16) < 0  )
         {
-            solid = true;
+           solid = true;
         }
 
 
@@ -88,14 +115,14 @@ public abstract class Mob extends Entity
         //dir = dir * 180 / Math.PI;
         Projectile p = new SpellProjectile_1(x,y,dir);
 
-        level.addProjectile(p);
+        level.add(p);
     }
     protected void shoot_2(int x, int y, double dir)
     {
         //dir = dir * 180 / Math.PI;
         Projectile p = new SpellProjectile_2(x,y,dir);
 
-        level.addProjectile(p);
+        level.add(p);
     }
 
 

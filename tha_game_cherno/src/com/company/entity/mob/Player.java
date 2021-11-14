@@ -14,7 +14,7 @@ public class Player extends Mob
 {
     private int anim = 0;
     private boolean walking = false;
-    private int SPEED = 2;
+    private int SPEED = 1;
     private Keyboard input_k;
 
     private int fireRate = 0;
@@ -63,20 +63,9 @@ public class Player extends Mob
 
         if(xa != 0 || ya != 0) move(xa,ya);
 
-        clear();
          updateShooting();
     }
-    private void clear()
-    {
-        for(int i = 0; i < level.getProjectiles().size(); i ++)
-        {
-            Projectile p = level.getProjectiles().get(i);
-            if(p.isRemoved())
-            {
-                level.getProjectiles().remove(i);
-            }
-        }
-    }
+
 
     private void updateShooting()
     {

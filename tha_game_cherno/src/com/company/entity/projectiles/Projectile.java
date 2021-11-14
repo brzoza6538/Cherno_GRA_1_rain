@@ -16,7 +16,6 @@ public abstract class Projectile extends Entity
     protected double TTL;
 
     protected double x,y;
-    protected int inverted = 1;
 
     protected final Random random = new Random();
 
