@@ -1,6 +1,8 @@
 package com.company.entity;
 
+import com.company.entity.spawner.ParticleSpawner;
 import com.company.graphics.Screen;
+import com.company.graphics.Sprite;
 import com.company.level.Level;
 import java.util.Random;
 

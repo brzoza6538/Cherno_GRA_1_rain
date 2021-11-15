@@ -43,7 +43,7 @@ public class Sprite
     public static Sprite spell_projetile_2 = new Sprite(16,1,0, SpriteSheet.spell_projetiles);
 /////////////////////////////////////////particles
     public static Sprite particle_water = new Sprite(2,0x30A8FF);
-    public static Sprite particle_stone = new Sprite(2,0xAAAFAFAB);
+    public static Sprite particle_stone = new Sprite(2,0x9D9D9D);
 
 
     public Sprite(int size, int x , int y, SpriteSheet sheet)

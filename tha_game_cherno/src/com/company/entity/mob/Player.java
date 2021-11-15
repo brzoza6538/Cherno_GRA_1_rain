@@ -4,6 +4,7 @@ import com.company.Main;
 import com.company.entity.projectiles.Projectile;
 import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.entity.projectiles.SpellProjectile_2;
+import com.company.entity.spawner.ParticleSpawner;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
 import com.company.input.Keyboard;
@@ -14,7 +15,7 @@ public class Player extends Mob
 {
     private int anim = 0;
     private boolean walking = false;
-    private int SPEED = 1;
+    private int SPEED = 2;
     private Keyboard input_k;
 
     private int fireRate = 0;
@@ -29,11 +30,13 @@ public class Player extends Mob
         this.input_k = input;
 
         fireRate = SpellProjectile_1.FIRE_RATE;
+
     }
     public Player(Keyboard input)
     {
         x = 0;
         y = 0;
+
         this.input_k = input;
         fireRate = SpellProjectile_1.FIRE_RATE;
 

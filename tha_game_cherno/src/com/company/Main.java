@@ -68,8 +68,8 @@ public class Main extends Canvas implements Runnable
         addMouseListener(mouse);
         addMouseMotionListener(mouse);
 
-        level = Level.random; // mozna zmienic "random" || "spawn"
-        TileCoordinate playerspawn = new TileCoordinate( 0,1); //30,28); - wartosci dla spawn // 0,1); - dla random
+        level = Level.spawn; // mozna zmienic "random" || "spawn"
+        TileCoordinate playerspawn = new TileCoordinate( 5,5); //30,28); - wartosci dla spawn // 0,1); - dla random
         player = new Player(playerspawn.X(),playerspawn.Y(), key);
         player.init(level);
     }

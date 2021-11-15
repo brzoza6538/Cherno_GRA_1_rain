@@ -8,6 +8,7 @@ import com.company.entity.projectiles.Projectile;
 import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.entity.projectiles.SpellProjectile_2;
 import com.company.graphics.Sprite;
+import com.company.level.Level;
 
 public abstract class Mob extends Entity
 {
@@ -45,7 +46,7 @@ public abstract class Mob extends Entity
 
         if(waterCheck(xa,ya))
         {
-            level.add(new ParticleSpawner((x + xa),(y + ya) + 16 ,3, Sprite.particle_water ,15,level));
+            level.add(new ParticleSpawner((x + xa),(y + ya) + 16 ,7, Sprite.particle_water ,7,level));
         }
 
 
@@ -61,7 +62,7 @@ public abstract class Mob extends Entity
 
     }
 
-    private boolean waterCheck(int xa, int ya)
+    protected boolean waterCheck(int xa, int ya)
     {
         boolean water = false;
 
@@ -129,6 +130,15 @@ public abstract class Mob extends Entity
         level.add(p);
     }
 
+    public void init(Level level)
+    {
+        this.level = level;
+
+        if(waterCheck(0,0))
+        {
+            level.add(new ParticleSpawner((x),(y) + 16 ,50, Sprite.particle_water ,50,level));
+        }
+    }
 
 }
 
