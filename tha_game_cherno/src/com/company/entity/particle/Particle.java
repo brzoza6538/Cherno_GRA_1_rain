@@ -16,56 +16,53 @@ public class Particle extends Entity
         WATER,STONE;
     }
 
-    public enum Dir
-    {
-        RIGHT,LEFT,UP,DOWN,ZERO;
-    }
+
 
     private ParticleType type;
-    private Dir dir;
 
-    public Particle(int x, int y, int TTL, Sprite particletype, Dir dir)
+    public Particle(int x, int y, int TTL, Sprite particletype)
     {
         this.x = x ;
         this.y = y ;
 
         this.xx = x ;
         this.yy = y ;
-        this.dir = dir;
 
         this.TTL = TTL + (random.nextInt(20)-10);
 
         this.sprite = particletype;
-
+/*
         if(dir == Dir.LEFT)
         {
-            this.xa = Math.abs(random.nextGaussian()) * -1 ;
+            this.xa = Math.abs(random.nextGaussian()) * -1;
             this.ya = random.nextGaussian();
         }
         else if(dir == Dir.RIGHT)
         {
-            this.xa = Math.abs(random.nextGaussian()) ;
+            this.xa = Math.abs(random.nextGaussian());
             this.ya = random.nextGaussian();
-
         }
         else if(dir == Dir.UP)
         {
             this.xa = random.nextGaussian();
-            this.ya = Math.abs(random.nextGaussian()) * -1 ;
-
+            this.ya = Math.abs(random.nextGaussian()) * -1;
         }
         else if(dir == Dir.DOWN)
         {
             this.xa = random.nextGaussian();
             this.ya = Math.abs(random.nextGaussian());
-
         }
         else if(dir == Dir.ZERO)
         {
-            this.xa = random.nextGaussian();
+           this.xa = random.nextGaussian();
             this.ya = random.nextGaussian();
         }
-        this.zz = random.nextFloat() + 2.0;
+ */
+        this.xa = random.nextGaussian() ;/// 5;
+        this.ya = random.nextGaussian() ;/// 5;
+
+
+        //this.zz = random.nextFloat() + 2.0;
     }
 
 
@@ -80,7 +77,7 @@ public class Particle extends Entity
 
         xa *= 0.9;
         ya *= 0.9;
-
+/*
         za -= 0.1;
         if(zz < 0)
         {
@@ -89,6 +86,8 @@ public class Particle extends Entity
             xa *= 0.4;
             ya *= 0.4;
         }
+
+ */
 
         move(xx+ xa, (yy+ ya)  );// + (zz + za));
 
@@ -100,7 +99,7 @@ public class Particle extends Entity
         {
             this.xa *= -0.5;
             this.ya *= -0.5;
-            this.za *= -0.5;
+            //this.za *= -0.5;
 
         }
         this.xx += xa;
@@ -119,6 +118,7 @@ public class Particle extends Entity
             double xt = (x + (c % 2 * sprite.SIZE)) / 16;
             double yt = (y + (c / 2 * sprite.SIZE)) / 16;
 
+
             if(!level.getTile((int)xt,(int) yt).shootable_through())
             {
                 solid = true;
@@ -130,7 +130,7 @@ public class Particle extends Entity
 
     public void render(Screen screen)
     {
-       // screen.renderSprite((int)xx, (int)yy - (int) zz, sprite, true);
+        //screen.renderSprite((int)xx, (int)yy - (int) zz, sprite, true);
         screen.renderSprite((int)xx, (int)yy, sprite, true);
 
     }

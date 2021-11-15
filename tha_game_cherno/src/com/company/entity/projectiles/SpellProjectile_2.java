@@ -14,6 +14,8 @@ public class SpellProjectile_2 extends Projectile
 
     public static final int offset = 0;
 
+    public static final double off = 0.5;
+
 
     public SpellProjectile_2 (int x, int y, double dir)
     {
@@ -51,11 +53,11 @@ public class SpellProjectile_2 extends Projectile
 
             if(nx < 0 )
             {
-                level.add(new ParticleSpawner((int)(x + nx + 16),(int)(y + ny + 16/2),50, Sprite.particle_stone ,  Particle.Dir.LEFT,40,level));
+                level.add(new ParticleSpawner((int)(x + nx + 16 - 2*off),(int)(y + ny + 16/2),50, Sprite.particle_stone , 40,level));
             }
             else if (nx > 0)
             {
-                level.add(new ParticleSpawner((int)(x + nx),(int)(y + ny+ 16/2),50, Sprite.particle_stone ,  Particle.Dir.RIGHT,40,level));
+                level.add(new ParticleSpawner((int)(x + nx + off ),(int)(y + ny+ 16/2),50, Sprite.particle_stone ,  40,level));
             }
         }
 
@@ -71,11 +73,11 @@ public class SpellProjectile_2 extends Projectile
 
             if(ny > 0 )
             {
-               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny),50, Sprite.particle_stone ,  Particle.Dir.DOWN,40,level));
+               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + off ),50, Sprite.particle_stone ,  40,level));
             }
             else if (ny < 0)
             {
-               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + 16),50, Sprite.particle_stone ,  Particle.Dir.UP,40,level));
+               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + 16 - 2*off ),50, Sprite.particle_stone ,  40,level));
             }
         }
 

@@ -8,14 +8,14 @@ public class ParticleSpawner extends Spawner
 {
     private int TTL;
 
-    public ParticleSpawner(int x, int y, int TTL, Sprite particletype, Particle.Dir dir, int amount, Level level)
+    public ParticleSpawner(int x, int y, int TTL, Sprite particletype, int amount, Level level)
     {
         super(x, y,  particletype, amount, level);
         this.TTL = TTL;
 
         for(int i = 0 ; i < amount;i ++)
         {
-            level.add(new Particle(x,y,TTL, particletype,dir));
+            level.add(new Particle(x,y,TTL, particletype));
         }
     }
 }
