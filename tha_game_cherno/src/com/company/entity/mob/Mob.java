@@ -136,7 +136,7 @@ public abstract class Mob extends Entity
 
         if(waterCheck(0,0))
         {
-            level.add(new ParticleSpawner((x),(y) + 16 ,50, Sprite.particle_water ,50,level));
+            level.add(new ParticleSpawner((x),(y) + 16 ,25, Sprite.particle_water ,25,level));
         }
     }
 
