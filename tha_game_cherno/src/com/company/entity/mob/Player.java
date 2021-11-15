@@ -86,7 +86,8 @@ public class Player extends Mob
             }
             if( Mouse.getButton() == 3)
             {
-                if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_2.SIZE,SpellProjectile_2.offset,SpellProjectile_2.offset)) {
+                if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_2.SIZE,SpellProjectile_2.offset,SpellProjectile_2.offset))
+                {
                     shoot_2(x - 8, y - 2, dir);
                     fireRate = SpellProjectile_2.FIRE_RATE;
                 }

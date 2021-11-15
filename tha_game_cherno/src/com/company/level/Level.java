@@ -183,7 +183,7 @@ public class Level
 
     }
 
-    public boolean Up_TileCollision(int x, int y, int size, int xOffset, int yOffset)
+    public boolean Up_TileCollision(int x, int y, int size, double xOffset, double yOffset)
     {
         //System.out.println(level.getTile(((x+xa)/16),((y+ya+10)/16)).Name() + " == " +  ((x+xa)/16) + " == " + (y+ya+10)/16);
 
@@ -191,10 +191,10 @@ public class Level
 
         for(int c = 0; c< 4; c++)
         {
-            int xt = (x + (c % 2 * (size)) + xOffset) >> 4;
-            int yt = (y + (c / 2 * (size)) + yOffset) >> 4;
+            double xt = (x + (c % 2 * (size)) + xOffset) / 16;
+            double yt = (y + (c / 2 * (size)) + yOffset) / 16;
 
-            if(!getTile(xt,yt).shootable_through())
+            if(!getTile((int)xt,(int)yt).shootable_through())
             {
                 solid = true;
             }

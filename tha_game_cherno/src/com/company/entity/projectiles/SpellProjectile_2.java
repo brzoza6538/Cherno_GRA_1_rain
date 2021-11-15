@@ -10,11 +10,11 @@ public class SpellProjectile_2 extends Projectile
 {
     public static final int FIRE_RATE = 25; //czas pomiedzy strzalami
 
-    public static final int SIZE = 16;
+    public static final int SIZE = 16 - 4;
 
-    public static final int offset = 0;
+    public static final double offset = 0 + 4/2;
 
-    public static final double off = 0.5;
+    public static final double off = 2;
 
 
     public SpellProjectile_2 (int x, int y, double dir)

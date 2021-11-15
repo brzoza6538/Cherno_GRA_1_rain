@@ -88,8 +88,8 @@ public abstract class Mob extends Entity
 
         for(int c = 0; c< 4; c++)
         {
-            int xt = ((x + xa) + c % 2 * 15 - 8) / 16 ;
-            int yt = ((y + ya) + c / 2 * 15 -0) / 16 ;
+            int xt = ((x + xa) + c % 2 * 12 - 6) / 16 ;
+            int yt = ((y + ya) + c / 2 * 15 - 0) / 16 ;
 
             /*
                   int xt = ((x + xa) + c % 2 * 15 - 8) / 16 ;

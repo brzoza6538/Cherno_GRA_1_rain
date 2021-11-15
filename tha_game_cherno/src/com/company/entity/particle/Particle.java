@@ -16,8 +16,6 @@ public class Particle extends Entity
         WATER,STONE;
     }
 
-
-
     private ParticleType type;
 
     public Particle(int x, int y, int TTL, Sprite particletype)
@@ -58,9 +56,8 @@ public class Particle extends Entity
             this.ya = random.nextGaussian();
         }
  */
-        this.xa = random.nextGaussian() ;/// 5;
-        this.ya = random.nextGaussian() ;/// 5;
-
+        this.xa = random.nextGaussian() * 0.5;
+        this.ya = random.nextGaussian() * 0.5;
 
         //this.zz = random.nextFloat() + 2.0;
     }
@@ -75,8 +72,8 @@ public class Particle extends Entity
             remove();
         }
 
-        xa *= 0.9;
-        ya *= 0.9;
+        xa *= 0.95;
+        ya *= 0.95;
 /*
         za -= 0.1;
         if(zz < 0)
@@ -100,7 +97,6 @@ public class Particle extends Entity
             this.xa *= -0.5;
             this.ya *= -0.5;
             //this.za *= -0.5;
-
         }
         this.xx += xa;
         this.yy += ya;
