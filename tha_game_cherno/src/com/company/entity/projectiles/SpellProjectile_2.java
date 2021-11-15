@@ -10,9 +10,9 @@ public class SpellProjectile_2 extends Projectile
 {
     public static final int FIRE_RATE = 25; //czas pomiedzy strzalami
 
-    public static final int SIZE = 16 - 4;
+    public static final int SIZE = 14 - 2;
 
-    public static final double offset = 0 + 4/2;
+    public static final double offset = 1 + 2/2;
 
     public static final double off = 2;
 
@@ -42,7 +42,7 @@ public class SpellProjectile_2 extends Projectile
 
         if(  level.Up_TileCollision((int)(x+nx),(int)(y),SIZE,offset,offset) )
         {
-            TTL = TTL *  (random.nextInt(8) + 7)/ 100;
+            TTL = TTL -  (random.nextInt(20) + 40);
             speed =  speed * 5 / 10;
             angle = Math.PI  - angle;
             damage = damage * 7 / 10;
@@ -63,7 +63,7 @@ public class SpellProjectile_2 extends Projectile
 
         if(  level.Up_TileCollision((int)x,(int)(y+ny),SIZE,offset,offset) )
         {
-            TTL = TTL *  (random.nextInt(8) + 7)/ 100;
+            TTL = TTL -  (random.nextInt(20) + 40);
             speed = speed   * 5 / 10;
             angle = Math.PI * 2 - angle;
             damage = damage * 7 / 10;
