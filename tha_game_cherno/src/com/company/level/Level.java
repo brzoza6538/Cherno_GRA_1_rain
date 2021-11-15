@@ -191,8 +191,8 @@ public class Level
 
         for(int c = 0; c< 4; c++)
         {
-            int xt = (x + (c % 2 * size) + xOffset) >> 4;
-            int yt = (y + (c / 2 * size) + yOffset) >> 4;
+            int xt = (x + (c % 2 * (size)) + xOffset) >> 4;
+            int yt = (y + (c / 2 * (size)) + yOffset) >> 4;
 
             if(!getTile(xt,yt).shootable_through())
             {

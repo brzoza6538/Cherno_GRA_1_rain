@@ -10,9 +10,9 @@ public class SpellProjectile_1 extends Projectile
 {
     public static final int FIRE_RATE = 10; //czas pomiedzy strzalami
 
-    private static final int SIZE = 6;
+    public static final int SIZE = 10;
 
-    private static final int offset = 5;
+    public static final int offset = 3;
 
     public SpellProjectile_1 (int x, int y, double dir)
     {
@@ -21,7 +21,7 @@ public class SpellProjectile_1 extends Projectile
 
         TTL = random.nextInt(20) + 70;
         damage = 20;
-        speed = 3.3;
+        speed = 3.3; // max 16 min 2
         sprite = Sprite.spell_projetile_1;
         nx = Math.cos(angle) * speed;
         ny = Math.sin(angle) * speed;
@@ -48,11 +48,11 @@ public class SpellProjectile_1 extends Projectile
 
             if(nx < 0 )
             {
-                level.add(new ParticleSpawner((int)(x + nx + SIZE * 2),(int)(y + ny + SIZE),15, Sprite.particle_stone ,  Particle.Dir.LEFT,15,level));
+                level.add(new ParticleSpawner((int)(x + nx + 16),(int)(y + ny + 16/2),50, Sprite.particle_stone ,  Particle.Dir.LEFT,25,level));
             }
             else if (nx > 0)
             {
-                level.add(new ParticleSpawner((int)(x + nx),(int)(y + ny+ SIZE),15, Sprite.particle_stone ,  Particle.Dir.RIGHT,15,level));
+                level.add(new ParticleSpawner((int)(x + nx ),(int)(y + ny+ 16/2),50, Sprite.particle_stone ,  Particle.Dir.RIGHT,25,level));
             }
         }
 
@@ -68,11 +68,11 @@ public class SpellProjectile_1 extends Projectile
 
             if(ny > 0 )
             {
-                level.add(new ParticleSpawner((int)(x + nx + SIZE),(int)(y + ny),15, Sprite.particle_stone ,  Particle.Dir.DOWN,15,level));
+                level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny ),50, Sprite.particle_stone ,  Particle.Dir.DOWN,25,level));
             }
             else if (ny < 0)
             {
-                level.add(new ParticleSpawner((int)(x + nx + SIZE),(int)(y + ny + SIZE * 2),15, Sprite.particle_stone ,  Particle.Dir.UP,15,level));
+                level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + 16),50, Sprite.particle_stone ,  Particle.Dir.UP,25,level));
             }
         }
 
@@ -86,10 +86,6 @@ public class SpellProjectile_1 extends Projectile
         TTL -= 1;
     }
 
-    private double distance()
-    {
-        return Math.sqrt((Xorigin - x) * (Xorigin - x) + (Yorigin - y)*(Yorigin - y));
-    }
 
     public void render(Screen screen)
     {

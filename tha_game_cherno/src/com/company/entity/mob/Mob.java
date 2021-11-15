@@ -45,7 +45,7 @@ public abstract class Mob extends Entity
 
         if(waterCheck(xa,ya))
         {
-            level.add(new ParticleSpawner((x + xa),(y + ya) + 16 ,20, Sprite.particle_water , Particle.Dir.ZERO,2,level));
+            level.add(new ParticleSpawner((x + xa),(y + ya) + 16 ,3, Sprite.particle_water , Particle.Dir.ZERO,15,level));
         }
 
 
@@ -89,8 +89,12 @@ public abstract class Mob extends Entity
         for(int c = 0; c< 4; c++)
         {
             int xt = ((x + xa) + c % 2 * 15 - 8) / 16 ;
-            int yt = ((y + ya) + c / 2 * 18 - 3) / 16 ;
+            int yt = ((y + ya) + c / 2 * 15 -0) / 16 ;
 
+            /*
+                  int xt = ((x + xa) + c % 2 * 15 - 8) / 16 ;
+            int yt = ((y + ya) + c / 2 * 18 - 3) / 16 ;
+             */
             if(level.getTile(xt,yt).solid())
             {
                 solid = true;
@@ -100,7 +104,7 @@ public abstract class Mob extends Entity
         }
 
 
-        if(((x+xa - 21)/16) < 0   || ((y+ya - 17) /16) < 0  )
+        if(((x+xa - 21)/16) < 0   || ((y+ya - 14) /16) < 0  )
         {
            solid = true;
         }

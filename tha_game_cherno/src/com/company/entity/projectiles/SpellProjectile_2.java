@@ -10,9 +10,9 @@ public class SpellProjectile_2 extends Projectile
 {
     public static final int FIRE_RATE = 25; //czas pomiedzy strzalami
 
-    private static final int SIZE = 16;
+    public static final int SIZE = 16;
 
-    private static final int offset = 0;
+    public static final int offset = 0;
 
 
     public SpellProjectile_2 (int x, int y, double dir)
@@ -51,11 +51,11 @@ public class SpellProjectile_2 extends Projectile
 
             if(nx < 0 )
             {
-                level.add(new ParticleSpawner((int)(x + nx + SIZE),(int)(y + ny + SIZE/2),25, Sprite.particle_stone ,  Particle.Dir.LEFT,25,level));
+                level.add(new ParticleSpawner((int)(x + nx + 16),(int)(y + ny + 16/2),50, Sprite.particle_stone ,  Particle.Dir.LEFT,40,level));
             }
             else if (nx > 0)
             {
-                level.add(new ParticleSpawner((int)(x + nx),(int)(y + ny+ SIZE/2),25, Sprite.particle_stone ,  Particle.Dir.RIGHT,25,level));
+                level.add(new ParticleSpawner((int)(x + nx),(int)(y + ny+ 16/2),50, Sprite.particle_stone ,  Particle.Dir.RIGHT,40,level));
             }
         }
 
@@ -71,11 +71,11 @@ public class SpellProjectile_2 extends Projectile
 
             if(ny > 0 )
             {
-               level.add(new ParticleSpawner((int)(x + nx + SIZE/2),(int)(y + ny),25, Sprite.particle_stone ,  Particle.Dir.DOWN,25,level));
+               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny),50, Sprite.particle_stone ,  Particle.Dir.DOWN,40,level));
             }
             else if (ny < 0)
             {
-               level.add(new ParticleSpawner((int)(x + nx + SIZE/2),(int)(y + ny + SIZE),25, Sprite.particle_stone ,  Particle.Dir.UP,25,level));
+               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + 16),50, Sprite.particle_stone ,  Particle.Dir.UP,40,level));
             }
         }
 

@@ -78,13 +78,18 @@ public class Player extends Mob
             //shoot(x - 4,y + 4,dir);
             if( Mouse.getButton() == 1)
             {
-                shoot_1(x - 8,y - 2,dir); // from where, to where   /musisz skonczyc na - 8 - 8
-                fireRate = SpellProjectile_1.FIRE_RATE;
+                if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_1.SIZE,SpellProjectile_1.offset,SpellProjectile_1.offset))
+                {
+                    shoot_1(x - 8,y - 2,dir); // from where, to where   /musisz skonczyc na - 8 - 8
+                    fireRate = SpellProjectile_1.FIRE_RATE;
+                }
             }
             if( Mouse.getButton() == 3)
             {
-                shoot_2(x -8,y - 2,dir);
-                fireRate = SpellProjectile_2.FIRE_RATE;
+                if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_2.SIZE,SpellProjectile_2.offset,SpellProjectile_2.offset)) {
+                    shoot_2(x - 8, y - 2, dir);
+                    fireRate = SpellProjectile_2.FIRE_RATE;
+                }
             }
         }
     }
