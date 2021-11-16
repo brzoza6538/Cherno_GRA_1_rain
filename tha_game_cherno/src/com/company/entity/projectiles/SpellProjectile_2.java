@@ -53,7 +53,7 @@ public class SpellProjectile_2 extends Projectile
 
             if(nx < 0 )
             {
-                level.add(new ParticleSpawner((int)(x + nx + 16 - off),(int)(y + ny + 16/2),60, Sprite.particle_stone , 50,level));
+                level.add(new ParticleSpawner((int)(x + nx + 16 - off - 1),(int)(y + ny + 16/2),60, Sprite.particle_stone , 50,level));
             }
             else if (nx > 0)
             {
@@ -77,7 +77,7 @@ public class SpellProjectile_2 extends Projectile
             }
             else if (ny < 0)
             {
-               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + 16 - off ),60, Sprite.particle_stone ,  50,level));
+               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + 16 - off - 1),60, Sprite.particle_stone ,  50,level));
             }
         }
 

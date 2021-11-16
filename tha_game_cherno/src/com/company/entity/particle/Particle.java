@@ -56,8 +56,8 @@ public class Particle extends Entity
             this.ya = random.nextGaussian();
         }
  */
-        this.xa = random.nextGaussian() ;
-        this.ya = random.nextGaussian() ;
+        this.xa = random.nextGaussian() * 0.7;
+        this.ya = random.nextGaussian() * 0.7;
 
 
         //this.zz = random.nextFloat() + 2.0;
