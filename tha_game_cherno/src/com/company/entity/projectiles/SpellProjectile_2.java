@@ -53,11 +53,11 @@ public class SpellProjectile_2 extends Projectile
 
             if(nx < 0 )
             {
-                level.add(new ParticleSpawner((int)(x + nx + 16 - off - 1),(int)(y + ny + 16/2),60, Sprite.particle_stone , 50,level));
+                level.add(new ParticleSpawner((int)(x + nx + 16 - off - 1),(int)(y + ny + 16/2),40, Sprite.particle_brick , 50,level));
             }
             else if (nx > 0)
             {
-                level.add(new ParticleSpawner((int)(x + nx + off ),(int)(y + ny+ 16/2),60, Sprite.particle_stone ,  50,level));
+                level.add(new ParticleSpawner((int)(x + nx + off ),(int)(y + ny+ 16/2),40, Sprite.particle_brick ,  50,level));
             }
         }
 
@@ -73,16 +73,18 @@ public class SpellProjectile_2 extends Projectile
 
             if(ny > 0 )
             {
-               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + off ),60, Sprite.particle_stone ,  50,level));
+               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + off ),40, Sprite.particle_brick ,  50,level));
             }
             else if (ny < 0)
             {
-               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + 16 - off - 1),60, Sprite.particle_stone ,  50,level));
+               level.add(new ParticleSpawner((int)(x + nx + 16/2),(int)(y + ny + 16 - off - 1),40, Sprite.particle_brick ,  50,level));
             }
         }
 
         x = x + (nx);
         y = y + (ny);
+
+        level.add(new ParticleSpawner((int)(x) + SIZE/2,(int)(y) + SIZE/2,10, Sprite.particle_water ,  2,level));
 
         if(TTL <= 0)
         {
