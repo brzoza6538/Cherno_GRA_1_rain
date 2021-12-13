@@ -65,6 +65,7 @@ public abstract class Mob extends Entity
     protected boolean waterCheck(int xa, int ya)
     {
         boolean water = false;
+        int wallCount = 4;
 
         for(int c = 0; c< 4; c++)
         {

@@ -10,18 +10,27 @@ import com.company.graphics.Sprite;
 import com.company.input.Keyboard;
 import com.company.input.Mouse;
 import com.company.level.Level;
+import java.lang.Math;
 
 public class Player extends Mob
 {
     private int anim = 0;
+    private long time_now = System.currentTimeMillis();
+    private long time_then = System.currentTimeMillis();
+
+    private double MouseX;
+    private double MouseY;
+
+    private double direction;
+
     private boolean walking = false;
     private int SPEED = 2;
     private Keyboard input_k;
 
     private int fireRate = 0;
 
-    private Sprite sprite = Sprite.player_S;
-
+    private Sprite sprite = Sprite.player_S_0;
+    private int FPS = 6;
 
     public Player(int x, int y, Keyboard input)
     {
@@ -44,6 +53,7 @@ public class Player extends Mob
 
     public void update()
     {
+
         if(fireRate > 0)
         {
             fireRate -- ;
@@ -63,10 +73,15 @@ public class Player extends Mob
         }
         else{walking = false;}
 
+        MouseX = Mouse.getX() - ((Main.getWindowWidth() /2)) ; //+ (4 * Main.getScale() ); // width * scale
+        MouseY = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) / 2)) - (6 * Main.getScale() ); //- (4 * Main.getScale() );
+        direction = Math.atan2(MouseY,MouseX);
 
         if(xa != 0 || ya != 0) move(xa,ya);
 
          updateShooting();
+
+
     }
 
 
@@ -74,16 +89,13 @@ public class Player extends Mob
     {
         if( (Mouse.getButton() == 1 || Mouse.getButton() == 3) && fireRate <= 0)
         {
-            double dx = Mouse.getX() - ((Main.getWindowWidth() /2)) ; //+ (4 * Main.getScale() ); // width * scale
-            double dy = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) / 2)) - (6 * Main.getScale() ); //- (4 * Main.getScale() );
-            double dir = Math.atan2(dy,dx);
 
             //shoot(x - 4,y + 4,dir);
             if( Mouse.getButton() == 1)
             {
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_1.SIZE,SpellProjectile_1.offset,SpellProjectile_1.offset))
                 {
-                    shoot_1(x - 8,y - 2,dir); // from where, to where   /musisz skonczyc na - 8 - 8
+                    shoot_1(x - 8,y - 2,direction); // from where, to where   /musisz skonczyc na - 8 - 8
                     fireRate = SpellProjectile_1.FIRE_RATE;
                 }
             }
@@ -91,7 +103,7 @@ public class Player extends Mob
             {
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_2.SIZE,SpellProjectile_2.offset,SpellProjectile_2.offset))
                 {
-                    shoot_2(x - 8, y - 2, dir);
+                    shoot_2(x - 8, y - 2, direction);
                     fireRate = SpellProjectile_2.FIRE_RATE;
                 }
             }
@@ -100,37 +112,51 @@ public class Player extends Mob
 
     public void render(Screen screen)
     {
-        if(anim < 1000) {anim++;}
-        else{anim = 0;}
+        time_now = System.currentTimeMillis(); // nanosekunda
+
+        if(time_now - time_then > 1000 / FPS)
+        {
+            time_then = time_now;
+
+            if(anim >= 3) {anim = 0;}
+            else {anim++;}
+        }
 
     /*
      0 - N
      1 - E
      2 - S
-     3 - W
+     3 - W - lewo
     */
-        if(walking == false)
-        {
-            if(dir == 0) {sprite = Sprite.player_N;}
-            if(dir == 1) {sprite = Sprite.player_W;}
-            if(dir == 2) {sprite = Sprite.player_S;}
-            if(dir == 3) {sprite = Sprite.player_E;}
-        }
-        else if (anim % 20 > 10)
-        {
-            if(dir == 0) {sprite = Sprite.player_N_r;}
-            if(dir == 1) {sprite = Sprite.player_W_r;}
-            if(dir == 2) {sprite = Sprite.player_S_r;}
-            if(dir == 3) {sprite = Sprite.player_E_r;}
-        }
-        else
-        {
-            if(dir == 0) {sprite = Sprite.player_N_l;}
-            if(dir == 1) {sprite = Sprite.player_W_l;}
-            if(dir == 2) {sprite = Sprite.player_S_l;}
-            if(dir == 3) {sprite = Sprite.player_E_l;}
-        }
 
+        if(walking == false || anim == 0)
+        {
+            if(MouseY <= - Math.abs(MouseX)) {sprite = Sprite.player_N_0;}
+            else if(Math.abs(MouseY) < MouseX) {sprite = Sprite.player_W_0;}
+            else if(MouseY >= Math.abs(MouseX)) {sprite = Sprite.player_S_0;}
+            else if(- Math.abs(MouseY) > MouseX) {sprite = Sprite.player_E_0;}
+        }
+        else if (anim == 1)
+        {
+            if(MouseY <= - Math.abs(MouseX)) {sprite = Sprite.player_N_1;}
+            else if(Math.abs(MouseY) < MouseX) {sprite = Sprite.player_W_1;}
+            else if(MouseY >= Math.abs(MouseX)) {sprite = Sprite.player_S_1;}
+            else if(- Math.abs(MouseY) > MouseX) {sprite = Sprite.player_E_1;}
+        }
+        else if( anim == 2)
+        {
+            if(MouseY <= - Math.abs(MouseX)) {sprite = Sprite.player_N_2;}
+            else if(Math.abs(MouseY) < MouseX) {sprite = Sprite.player_W_2;}
+            else if(MouseY >= Math.abs(MouseX)) {sprite = Sprite.player_S_2;}
+            else if(- Math.abs(MouseY) > MouseX) {sprite = Sprite.player_E_2;}
+        }
+        else if( anim == 3)
+        {
+            if(MouseY <= - Math.abs(MouseX)) {sprite = Sprite.player_N_3;}
+            else if(Math.abs(MouseY) < MouseX) {sprite = Sprite.player_W_3;}
+            else if(MouseY >= Math.abs(MouseX)) {sprite = Sprite.player_S_3;}
+            else if(- Math.abs(MouseY) > MouseX) {sprite = Sprite.player_E_3;}
+        }
 
         screen.renderPlayer(x-16,y - 16,sprite,false,false); // zrobilees obwodke wokol mapy
 

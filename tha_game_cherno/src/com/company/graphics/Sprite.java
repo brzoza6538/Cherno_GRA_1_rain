@@ -22,20 +22,27 @@ public class Sprite
     public static Sprite voidSprite = new Sprite(16, 0x0aa0f0);
 
     /////////////////////////////////player
-    public static Sprite player_N = new Sprite(32,2,5, SpriteSheet.tiles);
-    public static Sprite player_W = new Sprite(32,1,5, SpriteSheet.tiles);
-    public static Sprite player_S = new Sprite(32,0,5, SpriteSheet.tiles);
-    public static Sprite player_E = new Sprite(32,3,5, SpriteSheet.tiles);
 
-    public static Sprite player_N_r = new Sprite(32,2,6, SpriteSheet.tiles);
-    public static Sprite player_W_r = new Sprite(32,1,6, SpriteSheet.tiles);
-    public static Sprite player_S_r = new Sprite(32,0,6, SpriteSheet.tiles);
-    public static Sprite player_E_r = new Sprite(32,3,6, SpriteSheet.tiles);
+    public static Sprite player_N_0 = new Sprite(32,2,4, SpriteSheet.tiles);
+    public static Sprite player_W_0 = new Sprite(32,1,4, SpriteSheet.tiles);
+    public static Sprite player_S_0 = new Sprite(32,0,4, SpriteSheet.tiles);
+    public static Sprite player_E_0 = new Sprite(32,3,4, SpriteSheet.tiles);
 
-    public static Sprite player_N_l = new Sprite(32,2,7, SpriteSheet.tiles);
-    public static Sprite player_W_l = new Sprite(32,1,7, SpriteSheet.tiles);
-    public static Sprite player_S_l = new Sprite(32,0,7, SpriteSheet.tiles);
-    public static Sprite player_E_l = new Sprite(32,3,7, SpriteSheet.tiles);
+    public static Sprite player_N_1 = new Sprite(32,2,5, SpriteSheet.tiles);
+    public static Sprite player_W_1 = new Sprite(32,1,5, SpriteSheet.tiles);
+    public static Sprite player_S_1 = new Sprite(32,0,5, SpriteSheet.tiles);
+    public static Sprite player_E_1 = new Sprite(32,3,5, SpriteSheet.tiles);
+
+    public static Sprite player_N_2 = new Sprite(32,2,6, SpriteSheet.tiles);
+    public static Sprite player_W_2 = new Sprite(32,1,6, SpriteSheet.tiles);
+    public static Sprite player_S_2 = new Sprite(32,0,6, SpriteSheet.tiles);
+    public static Sprite player_E_2 = new Sprite(32,3,6, SpriteSheet.tiles);
+
+    public static Sprite player_N_3 = new Sprite(32,2,7, SpriteSheet.tiles);
+    public static Sprite player_W_3 = new Sprite(32,1,7, SpriteSheet.tiles);
+    public static Sprite player_S_3 = new Sprite(32,0,7, SpriteSheet.tiles);
+    public static Sprite player_E_3 = new Sprite(32,3,7, SpriteSheet.tiles);
+
 
 /////////////////////////////////////////projecitles
 
