@@ -19,29 +19,29 @@ public class Sprite
     public static Sprite spawn_rock_2 = new Sprite(16,1,1, SpriteSheet.spawn_level);
     public static Sprite spawn_puddle = new Sprite(16,2,1, SpriteSheet.spawn_level);
 
-    public static Sprite voidSprite = new Sprite(16, 0x0aa0f0);
+    public static Sprite voidSprite = new Sprite(16, 0x0aa0f0);//0,2, SpriteSheet.spawn_level);
 
     /////////////////////////////////player
 
-    public static Sprite player_N_0 = new Sprite(32,2,4, SpriteSheet.tiles);
-    public static Sprite player_W_0 = new Sprite(32,1,4, SpriteSheet.tiles);
-    public static Sprite player_S_0 = new Sprite(32,0,4, SpriteSheet.tiles);
-    public static Sprite player_E_0 = new Sprite(32,3,4, SpriteSheet.tiles);
+    public static Sprite player_N_0 = new Sprite(32,2,0, SpriteSheet.Player);
+    public static Sprite player_W_0 = new Sprite(32,1,0, SpriteSheet.Player);
+    public static Sprite player_S_0 = new Sprite(32,0,0, SpriteSheet.Player);
+    public static Sprite player_E_0 = new Sprite(32,3,0, SpriteSheet.Player);
 
-    public static Sprite player_N_1 = new Sprite(32,2,5, SpriteSheet.tiles);
-    public static Sprite player_W_1 = new Sprite(32,1,5, SpriteSheet.tiles);
-    public static Sprite player_S_1 = new Sprite(32,0,5, SpriteSheet.tiles);
-    public static Sprite player_E_1 = new Sprite(32,3,5, SpriteSheet.tiles);
+    public static Sprite player_N_1 = new Sprite(32,2,1, SpriteSheet.Player);
+    public static Sprite player_W_1 = new Sprite(32,1,1, SpriteSheet.Player);
+    public static Sprite player_S_1 = new Sprite(32,0,1, SpriteSheet.Player);
+    public static Sprite player_E_1 = new Sprite(32,3,1, SpriteSheet.Player);
 
-    public static Sprite player_N_2 = new Sprite(32,2,6, SpriteSheet.tiles);
-    public static Sprite player_W_2 = new Sprite(32,1,6, SpriteSheet.tiles);
-    public static Sprite player_S_2 = new Sprite(32,0,6, SpriteSheet.tiles);
-    public static Sprite player_E_2 = new Sprite(32,3,6, SpriteSheet.tiles);
+    public static Sprite player_N_2 = new Sprite(32,2,2, SpriteSheet.Player);
+    public static Sprite player_W_2 = new Sprite(32,1,2, SpriteSheet.Player);
+    public static Sprite player_S_2 = new Sprite(32,0,2, SpriteSheet.Player);
+    public static Sprite player_E_2 = new Sprite(32,3,2, SpriteSheet.Player);
 
-    public static Sprite player_N_3 = new Sprite(32,2,7, SpriteSheet.tiles);
-    public static Sprite player_W_3 = new Sprite(32,1,7, SpriteSheet.tiles);
-    public static Sprite player_S_3 = new Sprite(32,0,7, SpriteSheet.tiles);
-    public static Sprite player_E_3 = new Sprite(32,3,7, SpriteSheet.tiles);
+    public static Sprite player_N_3 = new Sprite(32,2,3, SpriteSheet.Player);
+    public static Sprite player_W_3 = new Sprite(32,1,3, SpriteSheet.Player);
+    public static Sprite player_S_3 = new Sprite(32,0,3, SpriteSheet.Player);
+    public static Sprite player_E_3 = new Sprite(32,3,3, SpriteSheet.Player);
 
 
 /////////////////////////////////////////projecitles

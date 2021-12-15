@@ -22,8 +22,19 @@ public abstract class Mob extends Entity
     */
     protected boolean moving = false;
 
+    //collision
+    protected int offX1=1;
+    protected int offX2=0;
+    protected int offY1=1;
+    protected int offY2=0;
+
+    protected int OOBX=23;
+    protected int OOBY=14; // out_of_bounds
+
+
     public Mob()
     {
+
     }
 
     public void move(int xa, int ya)
@@ -71,7 +82,7 @@ public abstract class Mob extends Entity
         {
 
             int xt = ((x + xa) + c % 2 * 3 - 1) / 16 ;
-            int yt = ((y + ya) + c / 2 * 3 + 16 ) / 16 ;
+            int yt = ((y + ya) + c / 2 * 3 + 16) / 16 ;
 
             if(level.getTile(xt,yt).Name() == "PuddleTile"  && (((x + xa) % 16 >= 3 && (x + xa) % 16 <= 11) && ((y + ya) % 16 >= 3 && (y + ya) % 16 <= 11)))
             {
@@ -90,13 +101,10 @@ public abstract class Mob extends Entity
 
         for(int c = 0; c< 4; c++)
         {
-            int xt = ((x + xa) + c % 2 * 12 - 6) / 16 ;
-            int yt = ((y + ya) + c / 2 * 15 - 0) / 16 ;
+            int xt = ((x + xa) + c % 2 * (offX1) + (offX2)) / 16 ;
+            int yt = ((y + ya) + c / 2 * offY1 + offY2) / 16 ;
 
-            /*
-                  int xt = ((x + xa) + c % 2 * 15 - 8) / 16 ;
-            int yt = ((y + ya) + c / 2 * 18 - 3) / 16 ;
-             */
+
             if(level.getTile(xt,yt).solid())
             {
                 solid = true;
@@ -106,7 +114,7 @@ public abstract class Mob extends Entity
         }
 
 
-        if(((x+xa - 21)/16) < 0   || ((y+ya - 14) /16) < 0  )
+        if(((x+xa - OOBX)/16) < 0   || ((y+ya - OOBY) /16) < 0  )
         {
            solid = true;
         }

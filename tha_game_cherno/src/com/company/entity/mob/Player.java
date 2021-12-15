@@ -27,10 +27,11 @@ public class Player extends Mob
     private int SPEED = 2;
     private Keyboard input_k;
 
+
     private int fireRate = 0;
 
     private Sprite sprite = Sprite.player_S_0;
-    private int FPS = 6;
+    private int FPS = 8;
 
     public Player(int x, int y, Keyboard input)
     {
@@ -39,6 +40,27 @@ public class Player extends Mob
         this.input_k = input;
 
         fireRate = SpellProjectile_1.FIRE_RATE;
+        /*
+        //playerSprite
+        offX1 = 12;
+        offX2 = -6;
+        offY1 = 15;
+        offY2 = 0;
+        offY2 = 0;
+
+        OOBX=21;
+        OOBY=14;
+         */
+        //skafander
+
+        offX1 = 14;
+        offX2 = -7;
+        offY1 = 15;
+        offY2 = 0;
+
+        OOBX=23;
+        OOBY=14;
+
 
     }
     public Player(Keyboard input)
@@ -48,6 +70,27 @@ public class Player extends Mob
 
         this.input_k = input;
         fireRate = SpellProjectile_1.FIRE_RATE;
+
+        /*
+        //playerSprite
+        offX1 = 12;
+        offX2 = -6;
+        offY1 = 15;
+        offY2 = 0;
+        offY2 = 0;
+
+        OOBX=21;
+        OOBY=14;
+         */
+        //skafander
+
+        offX1 = 14;
+        offX2 = -7;
+        offY1 = 15;
+        offY2 = 0;
+
+        OOBX=23;
+        OOBY=14;
 
     }
 
@@ -112,6 +155,7 @@ public class Player extends Mob
 
     public void render(Screen screen)
     {
+        //  https://www.desmos.com/calculator/pew0rbns49?lang=pl
         time_now = System.currentTimeMillis(); // nanosekunda
 
         if(time_now - time_then > 1000 / FPS)
