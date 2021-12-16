@@ -9,11 +9,15 @@ import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.entity.projectiles.SpellProjectile_2;
 import com.company.graphics.Sprite;
 import com.company.level.Level;
+import com.company.objects.costumes.Basic;
+import com.company.objects.costumes.Costume;
+import com.company.objects.costumes.Scafander;
 
 public abstract class Mob extends Entity
 {
     protected Sprite sprite;
     protected int dir = -1;
+    protected Costume costume;
     /*
      0 - N
      1 - E
@@ -22,19 +26,9 @@ public abstract class Mob extends Entity
     */
     protected boolean moving = false;
 
-    //collision
-    protected int offX1=1;
-    protected int offX2=0;
-    protected int offY1=1;
-    protected int offY2=0;
-
-    protected int OOBX=23;
-    protected int OOBY=14; // out_of_bounds
-
-
     public Mob()
     {
-
+        this.costume = new Scafander("clean");
     }
 
     public void move(int xa, int ya)
@@ -101,8 +95,8 @@ public abstract class Mob extends Entity
 
         for(int c = 0; c< 4; c++)
         {
-            int xt = ((x + xa) + c % 2 * (offX1) + (offX2)) / 16 ;
-            int yt = ((y + ya) + c / 2 * offY1 + offY2) / 16 ;
+            int xt = ((x + xa) + (c % 2 * costume.offX1) + (costume.offX2)) / 16 ;
+            int yt = ((y + ya) + (c / 2 * costume.offY1) + costume.offY2) / 16 ;
 
 
             if(level.getTile(xt,yt).solid())
@@ -114,7 +108,7 @@ public abstract class Mob extends Entity
         }
 
 
-        if(((x+xa - OOBX)/16) < 0   || ((y+ya - OOBY) /16) < 0  )
+        if(((x+xa - costume.OOBX)/16) < 0   || ((y+ya - costume.OOBY) /16) < 0  )
         {
            solid = true;
         }

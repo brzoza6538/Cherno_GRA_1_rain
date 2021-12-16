@@ -12,7 +12,7 @@ public class SpriteSheet
     public final int SIZE; //final = cap
     public int[] pixels;
 
-    public static SpriteSheet Player = new SpriteSheet("resources/textures/sheets/scafander_sprite_waist.png", 128); // player_sheet.png", 128);
+
     public static SpriteSheet spawn_level = new SpriteSheet("resources/textures/sheets/spawn_level_4.0.png", 48);
 
     public static SpriteSheet spell_projetiles = new SpriteSheet("resources/textures/sheets/projectiles/spell_projectiles.png", 48);
@@ -41,5 +41,6 @@ public class SpriteSheet
             e.printStackTrace();
         }
     }
+
 
 }

@@ -10,6 +10,8 @@ import com.company.graphics.Sprite;
 import com.company.input.Keyboard;
 import com.company.input.Mouse;
 import com.company.level.Level;
+import com.company.objects.costumes.*;
+
 import java.lang.Math;
 
 public class Player extends Mob
@@ -30,7 +32,7 @@ public class Player extends Mob
 
     private int fireRate = 0;
 
-    private Sprite sprite = Sprite.player_S_0;
+    private Sprite sprite = costume.player_S_0;
     private int FPS = 8;
 
     public Player(int x, int y, Keyboard input)
@@ -40,28 +42,8 @@ public class Player extends Mob
         this.input_k = input;
 
         fireRate = SpellProjectile_1.FIRE_RATE;
-        /*
-        //playerSprite
-        offX1 = 12;
-        offX2 = -6;
-        offY1 = 15;
-        offY2 = 0;
-        offY2 = 0;
 
-        OOBX=21;
-        OOBY=14;
-         */
-        //skafander
-
-        offX1 = 14;
-        offX2 = -7;
-        offY1 = 15;
-        offY2 = 0;
-
-        OOBX=23;
-        OOBY=14;
-
-
+        costume = new Basic();
     }
     public Player(Keyboard input)
     {
@@ -70,27 +52,6 @@ public class Player extends Mob
 
         this.input_k = input;
         fireRate = SpellProjectile_1.FIRE_RATE;
-
-        /*
-        //playerSprite
-        offX1 = 12;
-        offX2 = -6;
-        offY1 = 15;
-        offY2 = 0;
-        offY2 = 0;
-
-        OOBX=21;
-        OOBY=14;
-         */
-        //skafander
-
-        offX1 = 14;
-        offX2 = -7;
-        offY1 = 15;
-        offY2 = 0;
-
-        OOBX=23;
-        OOBY=14;
 
     }
 
@@ -136,6 +97,9 @@ public class Player extends Mob
             //shoot(x - 4,y + 4,dir);
             if( Mouse.getButton() == 1)
             {
+                ///////////////////////////
+                costume = new Scafander("clean");
+                ///////////////////////////
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_1.SIZE,SpellProjectile_1.offset,SpellProjectile_1.offset))
                 {
                     shoot_1(x - 8,y - 2,direction); // from where, to where   /musisz skonczyc na - 8 - 8
@@ -144,6 +108,9 @@ public class Player extends Mob
             }
             if( Mouse.getButton() == 3)
             {
+                ///////////////////////////
+                costume = new Basic();
+                ///////////////////////////
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_2.SIZE,SpellProjectile_2.offset,SpellProjectile_2.offset))
                 {
                     shoot_2(x - 8, y - 2, direction);
@@ -175,31 +142,31 @@ public class Player extends Mob
 
         if(walking == false || anim == 0)
         {
-            if(MouseY <= - Math.abs(MouseX)) {sprite = Sprite.player_N_0;}
-            else if(Math.abs(MouseY) < MouseX) {sprite = Sprite.player_W_0;}
-            else if(MouseY >= Math.abs(MouseX)) {sprite = Sprite.player_S_0;}
-            else if(- Math.abs(MouseY) > MouseX) {sprite = Sprite.player_E_0;}
+            if(MouseY <= - Math.abs(MouseX)) {sprite = costume.player_N_0;}
+            else if(Math.abs(MouseY) < MouseX) {sprite = costume.player_W_0;}
+            else if(MouseY >= Math.abs(MouseX)) {sprite = costume.player_S_0;}
+            else if(- Math.abs(MouseY) > MouseX) {sprite = costume.player_E_0;}
         }
         else if (anim == 1)
         {
-            if(MouseY <= - Math.abs(MouseX)) {sprite = Sprite.player_N_1;}
-            else if(Math.abs(MouseY) < MouseX) {sprite = Sprite.player_W_1;}
-            else if(MouseY >= Math.abs(MouseX)) {sprite = Sprite.player_S_1;}
-            else if(- Math.abs(MouseY) > MouseX) {sprite = Sprite.player_E_1;}
+            if(MouseY <= - Math.abs(MouseX)) {sprite = costume.player_N_1;}
+            else if(Math.abs(MouseY) < MouseX) {sprite = costume.player_W_1;}
+            else if(MouseY >= Math.abs(MouseX)) {sprite = costume.player_S_1;}
+            else if(- Math.abs(MouseY) > MouseX) {sprite = costume.player_E_1;}
         }
         else if( anim == 2)
         {
-            if(MouseY <= - Math.abs(MouseX)) {sprite = Sprite.player_N_2;}
-            else if(Math.abs(MouseY) < MouseX) {sprite = Sprite.player_W_2;}
-            else if(MouseY >= Math.abs(MouseX)) {sprite = Sprite.player_S_2;}
-            else if(- Math.abs(MouseY) > MouseX) {sprite = Sprite.player_E_2;}
+            if(MouseY <= - Math.abs(MouseX)) {sprite = costume.player_N_2;}
+            else if(Math.abs(MouseY) < MouseX) {sprite = costume.player_W_2;}
+            else if(MouseY >= Math.abs(MouseX)) {sprite = costume.player_S_2;}
+            else if(- Math.abs(MouseY) > MouseX) {sprite = costume.player_E_2;}
         }
         else if( anim == 3)
         {
-            if(MouseY <= - Math.abs(MouseX)) {sprite = Sprite.player_N_3;}
-            else if(Math.abs(MouseY) < MouseX) {sprite = Sprite.player_W_3;}
-            else if(MouseY >= Math.abs(MouseX)) {sprite = Sprite.player_S_3;}
-            else if(- Math.abs(MouseY) > MouseX) {sprite = Sprite.player_E_3;}
+            if(MouseY <= - Math.abs(MouseX)) {sprite = costume.player_N_3;}
+            else if(Math.abs(MouseY) < MouseX) {sprite = costume.player_W_3;}
+            else if(MouseY >= Math.abs(MouseX)) {sprite = costume.player_S_3;}
+            else if(- Math.abs(MouseY) > MouseX) {sprite = costume.player_E_3;}
         }
 
         screen.renderPlayer(x-16,y - 16,sprite,false,false); // zrobilees obwodke wokol mapy

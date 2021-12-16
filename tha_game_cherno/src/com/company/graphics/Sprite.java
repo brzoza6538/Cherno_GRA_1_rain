@@ -21,29 +21,6 @@ public class Sprite
 
     public static Sprite voidSprite = new Sprite(16, 0x0aa0f0);//0,2, SpriteSheet.spawn_level);
 
-    /////////////////////////////////player
-
-    public static Sprite player_N_0 = new Sprite(32,2,0, SpriteSheet.Player);
-    public static Sprite player_W_0 = new Sprite(32,1,0, SpriteSheet.Player);
-    public static Sprite player_S_0 = new Sprite(32,0,0, SpriteSheet.Player);
-    public static Sprite player_E_0 = new Sprite(32,3,0, SpriteSheet.Player);
-
-    public static Sprite player_N_1 = new Sprite(32,2,1, SpriteSheet.Player);
-    public static Sprite player_W_1 = new Sprite(32,1,1, SpriteSheet.Player);
-    public static Sprite player_S_1 = new Sprite(32,0,1, SpriteSheet.Player);
-    public static Sprite player_E_1 = new Sprite(32,3,1, SpriteSheet.Player);
-
-    public static Sprite player_N_2 = new Sprite(32,2,2, SpriteSheet.Player);
-    public static Sprite player_W_2 = new Sprite(32,1,2, SpriteSheet.Player);
-    public static Sprite player_S_2 = new Sprite(32,0,2, SpriteSheet.Player);
-    public static Sprite player_E_2 = new Sprite(32,3,2, SpriteSheet.Player);
-
-    public static Sprite player_N_3 = new Sprite(32,2,3, SpriteSheet.Player);
-    public static Sprite player_W_3 = new Sprite(32,1,3, SpriteSheet.Player);
-    public static Sprite player_S_3 = new Sprite(32,0,3, SpriteSheet.Player);
-    public static Sprite player_E_3 = new Sprite(32,3,3, SpriteSheet.Player);
-
-
 /////////////////////////////////////////projecitles
 
     public static Sprite spell_projetile_1 = new Sprite(16,0,0, SpriteSheet.spell_projetiles);
