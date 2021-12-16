@@ -13,6 +13,9 @@ public class RandomLevel extends Level // nie ma default pustego constructora = 
     public RandomLevel(int width, int height)
     {
         super(width, height); // przewija do constructora w originalnej klasie
+        spawnX = width/2;
+        spawnY = height/2;
+
 
     }
 
@@ -83,7 +86,7 @@ public class RandomLevel extends Level // nie ma default pustego constructora = 
     public Tile getTile(int x, int y)
     {
 
-        tilesInt[width] = 4; // kałuża
+        tilesInt[width/2 + height/2 * width] = 4; // kałuża
 
         if (x < 0 || y < 0 || x >= width || y >= height) {return Tile.voidTile;}
 

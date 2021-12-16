@@ -17,6 +17,7 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.Scanner;
 
 //implement - interface
 // extends - klasy
@@ -28,7 +29,7 @@ public class Main extends Canvas implements Runnable
     private static final long serialVersionUID = 1L;
     public static String title = "Rain";
     private static int width = 320;
-    private static int height = width / 16 * 9; //  168
+    private static int height = width / 16 * 9;
     private static int scale = 3;
 
     // wielkosc zrobimy na scale * width pixeli ale poniewaz nie uzywamy karty graficznej pracujemy na width pixeli
@@ -68,8 +69,36 @@ public class Main extends Canvas implements Runnable
         addMouseListener(mouse);
         addMouseMotionListener(mouse);
 
-        level = Level.random; // mozna zmienic "random" || "spawn"
-        TileCoordinate playerspawn = new TileCoordinate( 0,1); //30,28); - wartosci dla spawn // 0,1); - dla random
+/////////////////////////////////////////////// TYMCZASOWE
+        System.out.println("wpisz \n'420' - random labirynt\n'0' - spawn\n'999' - testing_ground" );
+
+        Scanner scn = new Scanner(System.in);
+        Short lvl = null;
+        if(scn.hasNextShort())
+        {
+            lvl = scn.nextShort();
+        }
+
+        if(lvl == 420)
+        {
+            level = Level.random;
+        }
+        else if(lvl == 0)
+        {
+            level = Level.spawn;
+        }
+        else if(lvl == 999)
+        {
+            level = Level.testing;
+        }
+        else
+        {
+            System.out.println("Bitch! Lecisz na random");
+            level = level.random;
+        }
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+        TileCoordinate playerspawn = new TileCoordinate(level.spawnX,level.spawnY);
         player = new Player(playerspawn.X(),playerspawn.Y(), key);
         player.init(level);
     }
@@ -203,7 +232,7 @@ public class Main extends Canvas implements Runnable
         g.drawImage (image, 0, 0, getWidth(), getHeight(), null);
         g.setColor(new Color(0xFFFFFFFF, true));
         g.setFont(new Font("Verdana",1,12));
-        g.drawString("X: " + (player.x - 4) + " Y: " + (player.y + 6) ,(width - 40)*scale - 10,10*scale - 7); // position shower
+        g.drawString("X: " + (player.x) + " Y: " + (player.y) ,(width - 40)*scale - 10,10*scale - 7); // position shower
         //g.drawString("FPS: " + FPS,272*scale,9*scale);
 
         //g.fillRect(Mouse.getX() - 8,Mouse.getY() - 8, 16,16);

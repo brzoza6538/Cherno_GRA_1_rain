@@ -10,6 +10,9 @@ import java.util.*;
 
 public class Level
 {
+    public int spawnX = 1;
+    public int spawnY = 1;
+
     public int width, height;
     protected int[] tilesInt;
     protected int[] tiles;
@@ -18,7 +21,8 @@ public class Level
     private List<Projectile> projectiles = new ArrayList<Projectile>();
     private List<Particle> particles = new ArrayList<Particle>();
 
-    public static Level spawn = new SpawnLevel("resources/levels/level_2.png");     //spawn.png");
+    public static Level testing = new com.company.level.TestingLevel("resources/levels/Level_2.png");
+    public static Level spawn = new SpawnLevel("resources/levels/spawn.png");
     public static Level random = new RandomLevel(1024,1024);
 
     public Level(int width, int height)

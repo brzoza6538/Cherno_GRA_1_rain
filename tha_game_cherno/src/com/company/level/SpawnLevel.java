@@ -12,9 +12,12 @@ import java.io.IOException;
 public class SpawnLevel extends Level
 {
 
+
     public SpawnLevel(String path)
     {
         super(path);
+        spawnX = 30;
+        spawnY = 28;
     }
 
     protected void loadLevel(String path)
