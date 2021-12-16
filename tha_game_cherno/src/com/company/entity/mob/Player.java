@@ -109,7 +109,7 @@ public class Player extends Mob
             if( Mouse.getButton() == 3)
             {
                 ///////////////////////////
-                costume = new Basic();
+                costume = new Scafander("waist");
                 ///////////////////////////
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_2.SIZE,SpellProjectile_2.offset,SpellProjectile_2.offset))
                 {
