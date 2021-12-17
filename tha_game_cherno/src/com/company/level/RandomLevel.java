@@ -87,6 +87,7 @@ public class RandomLevel extends Level // nie ma default pustego constructora = 
     {
 
         tilesInt[width/2 + height/2 * width] = 4; // kałuża
+        tilesInt[width/2 + (height/2 - 1) * width] = 5; // żeby łeb ci sie nie zaklinował na collision detection ściany
 
         if (x < 0 || y < 0 || x >= width || y >= height) {return Tile.voidTile;}
 
