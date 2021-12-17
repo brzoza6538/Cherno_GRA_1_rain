@@ -7,7 +7,7 @@ public class Sprite
     private int width, height;
     public int[] pixels;
 
-    private SpriteSheet sheet;
+    protected SpriteSheet sheet;
 
 
     /////////////////////////////////spawn level
@@ -29,6 +29,17 @@ public class Sprite
     public static Sprite particle_water = new Sprite(2,0x30A8FF);
     public static Sprite particle_brick = new Sprite(2,0xc02e17);
 
+    protected Sprite(SpriteSheet sheet, int width, int height )
+    {
+        SIZE = -1;
+        this.width = width;
+        this.height = height;
+
+        this.pixels = new int [width*height];
+
+        this.sheet = sheet;
+    }
+
 
     public Sprite(int size, int x , int y, SpriteSheet sheet)
     {
@@ -36,7 +47,7 @@ public class Sprite
         this.width = size;
         this.height = size;
 
-        pixels = new int [SIZE*SIZE];
+        this.pixels = new int [SIZE*SIZE];
         this.x = x*size;
         this.y = y*size;
         //od kiedy zaczac - wszystko jest podzielone gridem
@@ -50,7 +61,7 @@ public class Sprite
         this.SIZE = size;
         this.width = size;
         this.height = size;
-        pixels = new int[SIZE * SIZE];
+        this.pixels = new int[SIZE * SIZE];
 
         setColor(color);
     }
@@ -60,9 +71,18 @@ public class Sprite
         this.width = width;
         this.height = height;
 
-        pixels = new int[height * width];
+        this.pixels = new int[height * width];
 
         setColor(color);
+    }
+
+    public Sprite(int[] spritePixels, int width, int height)
+    {
+        SIZE = -1;
+        this.width = width;
+        this.height = height;
+
+        this.pixels = spritePixels;
     }
 
     private void setColor(int color)
@@ -85,11 +105,11 @@ public class Sprite
 
     private void load()
     {
-        for(int y = 0; y < SIZE; y++)
+        for(int y = 0; y < width; y++)
         {
-            for(int x = 0; x < SIZE; x++)
+            for(int x = 0; x < height; x++)
             {
-                pixels[x+y*SIZE] = sheet.pixels[(x + this.x) + (y + this.y) * sheet.SIZE];
+                pixels[x+y*width] = sheet.pixels[(x + this.x) + (y + this.y) * sheet.WIDTH];
             }
         }
     }

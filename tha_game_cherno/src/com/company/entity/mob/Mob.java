@@ -7,17 +7,22 @@ import com.company.entity.particle.Particle;
 import com.company.entity.projectiles.Projectile;
 import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.entity.projectiles.SpellProjectile_2;
+import com.company.graphics.AnimatedSprite;
 import com.company.graphics.Sprite;
 import com.company.level.Level;
 import com.company.objects.costumes.Basic;
 import com.company.objects.costumes.Costume;
-import com.company.objects.costumes.Scafander;
+
 
 public abstract class Mob extends Entity
 {
     protected Sprite sprite;
     protected int dir = -1;
-    protected Costume costume;
+
+    protected Costume costume = new Basic();
+
+    protected AnimatedSprite currentAnim = null;
+    //protected Costume costume;
     /*
      0 - N
      1 - E
@@ -28,7 +33,7 @@ public abstract class Mob extends Entity
 
     public Mob()
     {
-        this.costume = new Scafander("clean");
+        //this.costume = new Scafander("clean");
     }
 
     public void move(int xa, int ya)

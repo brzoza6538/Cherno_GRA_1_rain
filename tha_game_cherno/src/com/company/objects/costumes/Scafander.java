@@ -1,5 +1,6 @@
 package com.company.objects.costumes;
 
+import com.company.graphics.AnimatedSprite;
 import com.company.graphics.Sprite;
 import com.company.graphics.SpriteSheet;
 
@@ -19,39 +20,29 @@ public class Scafander extends Costume
         OOBX=23;
         OOBY=14;
 
-        player_N_0 = new Sprite(32,2,0, costumeSprite);
-        player_W_0 = new Sprite(32,1,0, costumeSprite);
-        player_S_0 = new Sprite(32,0,0, costumeSprite);
-        player_E_0 = new Sprite(32,3,0, costumeSprite);
+        sprite_down =  new SpriteSheet(costumeSprite,0,0,1,4,32 );
+        sprite_right = new SpriteSheet(costumeSprite,1,0,1,4,32 );
+        sprite_up = new SpriteSheet(costumeSprite,2,0,1,4,32 );
+        sprite_left = new SpriteSheet(costumeSprite,3,0,1,4,32 );
 
-        player_N_1 = new Sprite(32,2,1, costumeSprite);
-        player_W_1 = new Sprite(32,1,1, costumeSprite);
-        player_S_1 = new Sprite(32,0,1, costumeSprite);
-        player_E_1 = new Sprite(32,3,1, costumeSprite);
-
-        player_N_2 = new Sprite(32,2,2, costumeSprite);
-        player_W_2 = new Sprite(32,1,2, costumeSprite);
-        player_S_2 = new Sprite(32,0,2, costumeSprite);
-        player_E_2 = new Sprite(32,3,2, costumeSprite);
-
-        player_N_3 = new Sprite(32,2,3, costumeSprite);
-        player_W_3 = new Sprite(32,1,3, costumeSprite);
-        player_S_3 = new Sprite(32,0,3, costumeSprite);
-        player_E_3 = new Sprite(32,3,3, costumeSprite);
+        down = new AnimatedSprite(sprite_down, 32, 32, 4);
+        right = new AnimatedSprite(sprite_right, 32, 32, 4);
+        up = new AnimatedSprite(sprite_up, 32, 32, 4);
+        left = new AnimatedSprite(sprite_left, 32, 32, 4);
 
     }
 
-    public Scafander(String pas)
+    public Scafander(String version)
     {
-        if(pas == "waist")
+        if(version == "waist")
         {
             costumeSprite = new SpriteSheet("resources/textures/sheets/scafander_sprite_waist.png", 128);
         }
-        else if (pas == "clean")
+        else if (version == "clean")
         {
             costumeSprite = new SpriteSheet("resources/textures/sheets/scafander_sprite_clean.png", 128);
         }
-        else if (pas == "chest")
+        else if (version == "chest")
         {
             costumeSprite = new SpriteSheet("resources/textures/sheets/scafander_sprite_waist.png", 128);
         }
@@ -64,25 +55,15 @@ public class Scafander extends Costume
         OOBX=23;
         OOBY=14;
 
-        player_N_0 = new Sprite(32,2,0, costumeSprite);
-        player_W_0 = new Sprite(32,1,0, costumeSprite);
-        player_S_0 = new Sprite(32,0,0, costumeSprite);
-        player_E_0 = new Sprite(32,3,0, costumeSprite);
+        sprite_down =  new SpriteSheet(costumeSprite,0,0,1,4,32 );
+        sprite_right = new SpriteSheet(costumeSprite,1,0,1,4,32 );
+        sprite_up = new SpriteSheet(costumeSprite,2,0,1,4,32 );
+        sprite_left = new SpriteSheet(costumeSprite,3,0,1,4,32 );
 
-        player_N_1 = new Sprite(32,2,1, costumeSprite);
-        player_W_1 = new Sprite(32,1,1, costumeSprite);
-        player_S_1 = new Sprite(32,0,1, costumeSprite);
-        player_E_1 = new Sprite(32,3,1, costumeSprite);
-
-        player_N_2 = new Sprite(32,2,2, costumeSprite);
-        player_W_2 = new Sprite(32,1,2, costumeSprite);
-        player_S_2 = new Sprite(32,0,2, costumeSprite);
-        player_E_2 = new Sprite(32,3,2, costumeSprite);
-
-        player_N_3 = new Sprite(32,2,3, costumeSprite);
-        player_W_3 = new Sprite(32,1,3, costumeSprite);
-        player_S_3 = new Sprite(32,0,3, costumeSprite);
-        player_E_3 = new Sprite(32,3,3, costumeSprite);
+        down = new AnimatedSprite(sprite_down, 32, 32, 4);
+        right = new AnimatedSprite(sprite_right, 32, 32, 4);
+        up = new AnimatedSprite(sprite_up, 32, 32, 4);
+        left = new AnimatedSprite(sprite_left, 32, 32, 4);
 
     }
 }
