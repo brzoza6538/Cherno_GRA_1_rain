@@ -85,9 +85,31 @@ public class RandomLevel extends Level // nie ma default pustego constructora = 
     }
     public Tile getTile(int x, int y)
     {
+        ///////////////////////////////  spawn dome
 
+        // żeby łeb ci sie nie zaklinował na collision detection ściany
+        for(int ys = 0; ys < 5; ys ++)
+        {
+            for(int xs = 0; xs < 5; xs ++)
+            {
+                if(xs != 5/2 && ys != 5/2)
+                {
+                    tilesInt[width/2 - 5/2  + xs + (height/2 - 5/2 + ys)* width] = 0;
+                }
+                else
+                {
+                    tilesInt[width/2 - 5/2  + xs + (height/2 - 5/2 + ys)* width] = 5;
+                }
+                if(xs <4 && xs > 0  && ys <4 && ys > 0)
+                {
+                    tilesInt[width/2 - 5/2  + xs + (height/2 - 5/2 + ys)* width] = 3;
+                }
+
+            }
+        }
         tilesInt[width/2 + height/2 * width] = 4; // kałuża
-        tilesInt[width/2 + (height/2 - 1) * width] = 5; // żeby łeb ci sie nie zaklinował na collision detection ściany
+
+        ///////////////////////////////  spawn dome
 
         if (x < 0 || y < 0 || x >= width || y >= height) {return Tile.voidTile;}
 
