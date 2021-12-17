@@ -93,7 +93,6 @@ public abstract class Mob extends Entity
     }
     private boolean collision(int xa, int ya)
     {
-        //System.out.println(level.getTile(((x+xa)/16),((y+ya+10)/16)).Name() + " == " +  ((x+xa)/16) + " == " + (y+ya+10)/16);
 
             boolean solid = false;
 
@@ -125,14 +124,12 @@ public abstract class Mob extends Entity
 
     protected void shoot_1(int x, int y, double dir)
     {
-        //dir = dir * 180 / Math.PI;
         Projectile p = new SpellProjectile_1(x,y,dir);
 
         level.add(p);
     }
     protected void shoot_2(int x, int y, double dir)
     {
-        //dir = dir * 180 / Math.PI;
         Projectile p = new SpellProjectile_2(x,y,dir);
 
         level.add(p);

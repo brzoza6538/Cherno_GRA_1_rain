@@ -45,7 +45,7 @@ public class Player extends Mob
 
         currentAnim = costume.down;
 
-        //costume = new Basic();
+        costume = new Scafander("clean");
     }
     public Player(Keyboard input)
     {
@@ -113,7 +113,7 @@ public class Player extends Mob
             if( Mouse.getButton() == 1)
             {
                 ///////////////////////////
-                costume = new Scafander("clean");
+                costume = new Basic();
                 ///////////////////////////
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_1.SIZE,SpellProjectile_1.offset,SpellProjectile_1.offset))
                 {
