@@ -29,6 +29,9 @@ public class Player extends Mob
     private int SPEED = 2;
     private Keyboard input_k;
 
+    //////////////////////////tymczasowe
+    private int costumeRotation = 100;
+    ///////////////////////////////
 
     private int fireRate = 0;
 
@@ -45,7 +48,7 @@ public class Player extends Mob
 
         currentAnim = costume.down;
 
-        costume = new Scafander("clean");
+        costume = new Basic();
     }
     public Player(Keyboard input)
     {
@@ -61,6 +64,42 @@ public class Player extends Mob
     {
         MouseX = Mouse.getX() - ((Main.getWindowWidth() /2)) ; //+ (4 * Main.getScale() ); // width * scale
         MouseY = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) / 2)) - (6 * Main.getScale() ); //- (4 * Main.getScale() );
+
+/////////////////////////////////////////tymczasowo
+        //System.out.println(costumeRotation + " = = " +  Mouse.getRotation());
+
+        if(!Mouse.rotationAlreadyUsed())
+        {
+            costumeRotation += Mouse.getRotation();
+            Mouse.rotationUsed();
+        }
+
+        if(costumeRotation >= 9999 || costumeRotation <= 1)
+        {
+            costumeRotation = costumeRotation % 5;
+        }
+
+        if(costumeRotation % 5 == 0)
+        {
+            costume = new Basic();
+        }
+        else if(costumeRotation % 5 == 1)
+        {
+            costume = new Baboon();
+        }
+        else if(costumeRotation % 5 == 2)
+        {
+            costume = new Scafander("clean");
+        }
+        else if(costumeRotation % 5 == 3)
+        {
+            costume = new Scafander("waist");
+        }
+        else if(costumeRotation % 5 == 4)
+        {
+            costume = new Scafander("chest");
+        }
+//////////////////////////////////////////////////
 
         if(walking)
         {
@@ -112,9 +151,6 @@ public class Player extends Mob
             //shoot(x - 4,y + 4,dir);
             if( Mouse.getButton() == 1)
             {
-                ///////////////////////////
-                costume = new Basic();
-                ///////////////////////////
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_1.SIZE,SpellProjectile_1.offset,SpellProjectile_1.offset))
                 {
                     shoot_1(x - 8,y - 2,direction); // from where, to where   /musisz skonczyc na - 8 - 8
@@ -123,9 +159,6 @@ public class Player extends Mob
             }
             if( Mouse.getButton() == 3)
             {
-                ///////////////////////////
-                costume = new Scafander("waist");
-                ///////////////////////////
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_2.SIZE,SpellProjectile_2.offset,SpellProjectile_2.offset))
                 {
                     shoot_2(x - 8, y - 2, direction);

@@ -1,14 +1,14 @@
 package com.company.input;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 
-public class Mouse implements MouseListener, MouseMotionListener
+public class Mouse implements MouseListener, MouseMotionListener, MouseWheelListener
 {
     private static int mouseX = -1;
     private static int mouseY = -1;
     private static int mouseB = -1;
+    private static int rotation = 0;
+    private static boolean alreadyUsed = false;
 
     public static int getX()
     {
@@ -18,6 +18,22 @@ public class Mouse implements MouseListener, MouseMotionListener
     public static int getY()
     {
         return mouseY;
+    }
+
+    public static int getRotation()
+    {
+        return rotation;
+    }
+
+    public static boolean rotationAlreadyUsed()
+    {
+        return alreadyUsed;
+    }
+
+    public static void rotationUsed()
+    {
+        alreadyUsed = true;
+        rotation = 0;
     }
 
     public static int getButton()
@@ -62,5 +78,11 @@ public class Mouse implements MouseListener, MouseMotionListener
         mouseX = e.getX();
         mouseY = e.getY();
         //System.out.println(mouseX + " - " + mouseY);
+    }
+
+    public void mouseWheelMoved(MouseWheelEvent e)
+    {
+        alreadyUsed = false;
+        rotation = e.getWheelRotation();
     }
 }

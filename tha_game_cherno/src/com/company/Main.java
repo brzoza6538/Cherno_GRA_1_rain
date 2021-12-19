@@ -68,6 +68,7 @@ public class Main extends Canvas implements Runnable
         Mouse mouse = new Mouse();
         addMouseListener(mouse);
         addMouseMotionListener(mouse);
+        addMouseWheelListener(mouse);
 
 /////////////////////////////////////////////// TYMCZASOWE
         System.out.println("wpisz \n'420' - random labirynt\n'0' - spawn\n'999' - testing_ground" );
