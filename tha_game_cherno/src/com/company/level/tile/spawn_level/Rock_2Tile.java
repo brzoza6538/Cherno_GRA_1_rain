@@ -27,6 +27,11 @@ public class Rock_2Tile extends Tile
         return false;
     }
 
+    public boolean Water()
+    {
+        return false; // default
+    }
+
     public String Name()
     {
         return "Rock_2Tile";
@@ -36,6 +41,7 @@ public class Rock_2Tile extends Tile
     {
         screen.renderTile(x << 4, y << 4, this);
     }
+
 
 }
 

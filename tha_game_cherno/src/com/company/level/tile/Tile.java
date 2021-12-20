@@ -55,6 +55,10 @@ public class Tile
     {
         return true; // default
     }
+    public boolean Water()
+    {
+        return false; // default
+    }
 
 
 }

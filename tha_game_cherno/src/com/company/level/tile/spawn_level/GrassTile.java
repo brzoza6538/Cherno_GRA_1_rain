@@ -28,6 +28,11 @@ public class GrassTile extends Tile
         return false;
     }
 
+    public boolean Water()
+    {
+        return false; // default
+    }
+
     public String Name()
     {
         return "GrassTile";

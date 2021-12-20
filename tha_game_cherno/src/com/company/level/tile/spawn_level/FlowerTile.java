@@ -31,6 +31,11 @@ public class FlowerTile extends Tile
             return true;
         }
 
+        public boolean Water()
+        {
+            return false; // default
+        }
+
         public String Name()
         {
             return "FlowerTile";

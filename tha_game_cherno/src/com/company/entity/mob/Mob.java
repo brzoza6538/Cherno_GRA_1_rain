@@ -83,7 +83,7 @@ public abstract class Mob extends Entity
             int xt = ((x + xa) + c % 2 * 3 - 1) / 16 ;
             int yt = ((y + ya) + c / 2 * 3 + 16) / 16 ;
 
-            if(level.getTile(xt,yt).Name() == "PuddleTile"  && (((x + xa) % 16 >= 3 && (x + xa) % 16 <= 11) && ((y + ya) % 16 >= 3 && (y + ya) % 16 <= 11)))
+            if(level.getTile(xt,yt).Water() == true   && (((x + xa) % 16 >= 3 && (x + xa) % 16 <= 11) && ((y + ya) % 16 >= 3 && (y + ya) % 16 <= 11)))
             {
                 //level.add(new Spawner((xt)*16 + 8,(yt)*16 - 8,Spawner.Type.PARTICLE, 10,level));
                 water = true;

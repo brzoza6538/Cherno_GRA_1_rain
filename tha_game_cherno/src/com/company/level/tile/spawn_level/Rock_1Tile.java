@@ -30,6 +30,11 @@ public class Rock_1Tile extends Tile
         return true;
     }
 
+    public boolean Water()
+    {
+        return false; // default
+    }
+
     public String Name()
     {
         return "Rock_1Tile";

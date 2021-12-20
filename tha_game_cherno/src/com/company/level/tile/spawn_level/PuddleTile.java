@@ -28,6 +28,12 @@ public class PuddleTile extends Tile
         return false;
     }
 
+    public boolean Water()
+    {
+        return true; // default
+    }
+
+
     public String Name()
     {
         return "PuddleTile";
