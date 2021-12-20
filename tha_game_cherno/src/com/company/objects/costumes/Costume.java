@@ -9,9 +9,9 @@ import com.company.graphics.SpriteSheet;
 public abstract class Costume
 {
     //collision data
-    public int offX1=1;
+    public int offX1=1; // nie moze byc wieksze od tile-a (16)
     public int offX2=0;
-    public int offY1=1;
+    public int offY1=1; // nie moze byc wieksze od tile-a (16)
     public int offY2=0;
 
     public int OOBX=23;

@@ -19,7 +19,7 @@ public class Baboon extends Costume
         offY1 = 15;
         offY2 = 0;
 
-        OOBX=25;
+        OOBX=23;
         OOBY=14;
 
 
