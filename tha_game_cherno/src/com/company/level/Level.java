@@ -23,7 +23,7 @@ public class Level
 
     public static Level testing = new com.company.level.TestingLevel("resources/levels/Level_2.png");
     public static Level spawn = new SpawnLevel("resources/levels/spawn.png");
-    public static Level random = new RandomLevel(1024,1024);
+    public static Level random = new RandomLevel(256,256);
 
     public Level(int width, int height)
     {
