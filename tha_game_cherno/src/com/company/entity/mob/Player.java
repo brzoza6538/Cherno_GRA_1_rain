@@ -75,14 +75,16 @@ public class Player extends Mob
 
 
             if (costumeRotation >= 9999 || costumeRotation <= 1) {
-                costumeRotation = costumeRotation % 5;
+                costumeRotation = costumeRotation % 6;
             }
 
-            if (costumeRotation % 5 == 0) {costume = new Basic();}
-            else if (costumeRotation % 5 == 1) {costume = new Baboon();}
-            else if (costumeRotation % 5 == 2) {costume = new Scafander("clean");}
-            else if (costumeRotation % 5 == 3) {costume = new Scafander("waist");}
-            else if (costumeRotation % 5 == 4) {costume = new Scafander("chest");}
+            if (costumeRotation % 6 == 0) {costume = new Basic();}
+            else if (costumeRotation % 6 == 1) {costume = new Baboon();}
+            else if (costumeRotation % 6 == 2) {costume = new Scafander("clean");}
+            else if (costumeRotation % 6 == 3) {costume = new Scafander("waist");}
+            else if (costumeRotation % 6 == 4) {costume = new Scafander("chest");}
+            else if (costumeRotation % 6 == 5) {costume = new StolenSprite();}
+
         }
 //////////////////////////////////////////////////
 
