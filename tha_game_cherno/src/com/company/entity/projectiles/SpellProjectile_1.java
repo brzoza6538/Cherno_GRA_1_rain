@@ -1,10 +1,13 @@
 package com.company.entity.projectiles;
 
+import com.company.Main;
+import com.company.entity.mob.Player;
 import com.company.entity.spawner.ParticleSpawner;
 import com.company.entity.spawner.Spawner;
 import com.company.entity.particle.Particle;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
+import com.company.input.Mouse;
 
 public class SpellProjectile_1 extends Projectile
 {
@@ -15,6 +18,11 @@ public class SpellProjectile_1 extends Projectile
     public static final int offset = 3;
 
     private static int off = 3;
+
+    private static int waga1 = 100000;
+    private static int waga2 = 1;
+
+    private boolean first_collision = false;
 
     public SpellProjectile_1 (int x, int y, double dir)
     {
@@ -27,19 +35,34 @@ public class SpellProjectile_1 extends Projectile
         sprite = Sprite.spell_projetile_1;
         nx = Math.cos(angle) * speed;
         ny = Math.sin(angle) * speed;
-
     }
 
     public void update()
     {
+        if (first_collision == false)
+        {
+            double MouseX = Mouse.getX() - ((Main.getWindowWidth() /2)) ; //+ (4 * Main.getScale() ); // width * scale
+            double MouseY = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) / 2)) - (6 * Main.getScale() ); //- (4 * Main.getScale() );
+            double direction = Math.atan2(MouseY,MouseX);
+
+            double srednia = (direction * waga1 + angle * waga2) / (waga1 + waga2);
+            angle = srednia;
+        }
+
+
+        nx = Math.cos(angle) * speed;
+        ny = Math.sin(angle) * speed;
+
         move();
     }
 
     protected void move()
     {
 
+
         if(  level.Up_TileCollision((int)(x+ nx),(int)(y),SIZE,offset,offset) )
         {
+            first_collision = true;
             //TTL = TTL *  (random.nextInt(20) + 30)/ 100;
             speed =  speed * 8 / 10;
             angle = Math.PI  - angle;
@@ -62,6 +85,8 @@ public class SpellProjectile_1 extends Projectile
 
         if(  level.Up_TileCollision((int)x,(int)(y+ ny),SIZE,offset,offset) )
         {
+            first_collision = true;
+
             //TTL = TTL *  (random.nextInt(20) + 30)/ 100;
             speed = speed   * 8 / 10;
             angle = Math.PI * 2 - angle;

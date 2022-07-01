@@ -230,10 +230,18 @@ public class Main extends Canvas implements Runnable
 
         Graphics g = bs.getDrawGraphics();
 /* - znacząco zrzuca fps */
+
+        double radX = Mouse.getX() - ((Main.getWindowWidth() /2)) ; //+ (4 * Main.getScale() ); // width * scale
+        double radY = Mouse.getY() - (((Main.getWindowWidth() / 16 * 9) / 2)) - (6 * Main.getScale() ); //- (4 * Main.getScale() );
+
         g.drawImage (image, 0, 0, getWidth(), getHeight(), null);
         g.setColor(new Color(0xFFFFFFFF, true));
         g.setFont(new Font("Verdana",1,12));
         g.drawString("X: " + (player.x) + " Y: " + (player.y) ,(width - 40)*scale - 10,10*scale - 7); // position shower
+        g.drawString("proba1 : " + (180 /Math.PI *(Math.atan2(radY,radX))), (width - 40)*scale - 10,10*scale +7); // position shower
+        g.drawString("X: " + Mouse.getX() + " Y: " + Mouse.getY() , (width - 40)*scale - 10,10*scale + 21); // position shower
+        g.drawString("X: " + width*scale/2 + " Y: " +  (height*scale/2 + 6 * scale) , (width - 40)*scale - 10,10*scale + 35); // position shower
+
         //g.drawString("FPS: " + FPS,272*scale,9*scale);
 
         //g.fillRect(Mouse.getX() - 8,Mouse.getY() - 8, 16,16);

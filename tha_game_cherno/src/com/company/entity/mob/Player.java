@@ -24,6 +24,7 @@ public class Player extends Mob
 
     private double MouseX;
     private double MouseY;
+    public double direction;
 
     private boolean walking = false;
     private int SPEED = 2;
@@ -131,11 +132,13 @@ public class Player extends Mob
 
     private void updateShooting()
     {
-        double direction = Math.atan2(MouseY,MouseX);
+        direction = Math.atan2(MouseY,MouseX);
+        System.out.println(direction);
         if( (Mouse.getButton() == 1 || Mouse.getButton() == 3) && fireRate <= 0)
         {
 
             //shoot(x - 4,y + 4,dir);
+
             if( Mouse.getButton() == 1)
             {
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_1.SIZE,SpellProjectile_1.offset,SpellProjectile_1.offset))
@@ -144,6 +147,7 @@ public class Player extends Mob
                     fireRate = SpellProjectile_1.FIRE_RATE;
                 }
             }
+
             if( Mouse.getButton() == 3)
             {
                 if( ! level.Up_TileCollision((int)(x-8),(int)(y-2),SpellProjectile_2.SIZE,SpellProjectile_2.offset,SpellProjectile_2.offset))
@@ -169,4 +173,10 @@ public class Player extends Mob
 
 
     }
+/*
+    public static double getdirection()
+    {
+        return  Math.atan2(MouseY,MouseX);
+    }
+  */
 }

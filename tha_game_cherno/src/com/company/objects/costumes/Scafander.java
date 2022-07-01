@@ -44,7 +44,7 @@ public class Scafander extends Costume
         }
         else if (version == "chest")
         {
-            costumeSprite = new SpriteSheet("resources/textures/sheets/scafander_sprite_waist.png", 128);
+            costumeSprite = new SpriteSheet("resources/textures/sheets/scafander_sprite_chest.png", 128);
         }
 
         offX1 = 14;
