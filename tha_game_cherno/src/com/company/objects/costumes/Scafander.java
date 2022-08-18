@@ -10,7 +10,7 @@ public class Scafander extends Costume
 
     public Scafander()
     {
-        costumeSprite = new SpriteSheet("resources/textures/sheets/scafander_sprite_waist.png", 128);
+        costumeSprite = new SpriteSheet("tha_game_cherno/resources/textures/sheets/scafander_sprite_waist.png", 128);
 
         offX1 = 14;
         offX2 = -7;
@@ -36,15 +36,15 @@ public class Scafander extends Costume
     {
         if(version == "waist")
         {
-            costumeSprite = new SpriteSheet("resources/textures/sheets/scafander_sprite_waist.png", 128);
+            costumeSprite = new SpriteSheet("tha_game_cherno/resources/textures/sheets/scafander_sprite_waist.png", 128);
         }
         else if (version == "clean")
         {
-            costumeSprite = new SpriteSheet("resources/textures/sheets/scafander_sprite_clean.png", 128);
+            costumeSprite = new SpriteSheet("tha_game_cherno/resources/textures/sheets/scafander_sprite_clean.png", 128);
         }
         else if (version == "chest")
         {
-            costumeSprite = new SpriteSheet("resources/textures/sheets/scafander_sprite_chest.png", 128);
+            costumeSprite = new SpriteSheet("tha_game_cherno/resources/textures/sheets/scafander_sprite_waist.png", 128);
         }
 
         offX1 = 14;

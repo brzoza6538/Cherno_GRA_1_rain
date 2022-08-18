@@ -11,7 +11,7 @@ public class StolenSprite extends Costume
 
     public StolenSprite()
     {
-        costumeSprite = new SpriteSheet("resources/textures/sheets/stolen_sprite.png", 128, 128);
+        costumeSprite = new SpriteSheet("tha_game_cherno/resources/textures/sheets/stolen_sprite.png", 128, 128);
 
         offX1 = 12;
         offX2 = -6;

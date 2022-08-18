@@ -11,7 +11,7 @@ public class Baboon extends Costume
 
     public Baboon()
     {
-        costumeSprite = new SpriteSheet("resources/textures/sheets/sniper baboon.png", 128, 128);
+        costumeSprite = new SpriteSheet("tha_game_cherno/resources/textures/sheets/sniper baboon.png", 128, 128);
 
 
         offX1 = 15;

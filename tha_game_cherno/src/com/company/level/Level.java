@@ -21,8 +21,8 @@ public class Level
     private List<Projectile> projectiles = new ArrayList<Projectile>();
     private List<Particle> particles = new ArrayList<Particle>();
 
-    public static Level testing = new com.company.level.TestingLevel("resources/levels/Level_2.png");
-    public static Level spawn = new SpawnLevel("resources/levels/spawn.png");
+    public static Level testing = new com.company.level.TestingLevel("tha_game_cherno/resources/levels/Level_2.png");
+    public static Level spawn = new SpawnLevel("tha_game_cherno/resources/levels/spawn.png");
     public static Level random = new RandomLevel(256,256);
 
     public Level(int width, int height)

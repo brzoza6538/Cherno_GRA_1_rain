@@ -16,9 +16,9 @@ public class SpriteSheet
     public int[] pixels;
     private Sprite[] sprites;
 
-    public static SpriteSheet spawn_level = new SpriteSheet("resources/textures/sheets/spawn_level_4.0.png", 48);
+    public static SpriteSheet spawn_level = new SpriteSheet("tha_game_cherno/resources/textures/sheets/spawn_level_4.0.png", 48);
 
-    public static SpriteSheet spell_projetiles = new SpriteSheet("resources/textures/sheets/projectiles/spell_projectiles.png", 48);
+    public static SpriteSheet spell_projetiles = new SpriteSheet("tha_game_cherno/resources/textures/sheets/projectiles/spell_projectiles.png", 48);
 
 
 
