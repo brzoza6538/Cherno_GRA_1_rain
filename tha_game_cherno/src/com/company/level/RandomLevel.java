@@ -1,5 +1,6 @@
 package com.company.level;
 
+import com.company.entity.mob.NPC_type0;
 import com.company.level.tile.Tile;
 
 import java.util.Random;
@@ -81,7 +82,6 @@ public class RandomLevel extends Level // nie ma default pustego constructora = 
                 generateLevel(!xy, przejscie+1, sciana+1, x1, y1);
             }
         }
-
     }
     public Tile getTile(int x, int y)
     {

@@ -19,8 +19,8 @@ public class SpellProjectile_1 extends Projectile
 
     private static int off = 3;
 
-    private static int waga1 = 5000000;
-    private static int waga2 = 1;
+    private static int waga1 = 1000;
+    private static int waga2 = 10;
 
     private boolean first_collision = false;
 

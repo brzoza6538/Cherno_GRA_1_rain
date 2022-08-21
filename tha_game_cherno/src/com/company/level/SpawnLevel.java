@@ -40,9 +40,10 @@ public class SpawnLevel extends Level
         {
             System.out.println("Level file not loaded");
         }
-        spawnX = 30;
-        spawnY = 28;
-        add(new NPC_type0( spawnX + 2, spawnY));
+
+        TileCoordinate mobspawn_1 = new TileCoordinate(32,28);
+
+        add(new NPC_type0( mobspawn_1.X(), mobspawn_1.Y()));
 
     }
 

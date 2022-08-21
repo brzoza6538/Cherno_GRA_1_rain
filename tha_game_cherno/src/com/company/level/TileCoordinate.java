@@ -5,7 +5,7 @@ import com.company.level.tile.Tile;
 public class TileCoordinate
 {
     private int x,y;
-    int TILE_SIZE = 16;
+    final static int TILE_SIZE = 16;
 
     public TileCoordinate(int x, int y)
     {

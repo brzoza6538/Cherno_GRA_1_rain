@@ -2,8 +2,6 @@ package com.company.entity.mob;
 
 import com.company.entity.Entity;
 import com.company.entity.spawner.ParticleSpawner;
-import com.company.entity.spawner.Spawner;
-import com.company.entity.particle.Particle;
 import com.company.entity.projectiles.Projectile;
 import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.entity.projectiles.SpellProjectile_2;
@@ -18,8 +16,14 @@ import com.company.objects.costumes.Costume;
 public abstract class Mob extends Entity
 {
     protected Sprite sprite;
-    protected int dir = -1;
 
+    protected int SPEED = 1;
+
+    protected enum Direction
+    {
+        UP,DOWN,LEFT,RIGHT
+    }
+    protected Direction dir;
     protected Costume costume = new Basic();
 
     protected AnimatedSprite currentAnim = null;
@@ -30,7 +34,7 @@ public abstract class Mob extends Entity
      2 - S
      3 - W
     */
-    protected boolean moving = false;
+    protected boolean walking = false;
 
     public Mob()
     {
@@ -40,10 +44,10 @@ public abstract class Mob extends Entity
     public void move(int xa, int ya)
     {
 
-        if(xa > 0) dir = 1;
-        if(xa < 0) dir = 3;
-        if(ya > 0) dir = 2;
-        if(ya < 0) dir = 0;
+        if(xa > 0) dir = Direction.RIGHT;
+        if(xa < 0) dir = Direction.LEFT;
+        if(ya > 0) dir = Direction.DOWN;
+        if(ya < 0) dir = Direction.UP;
 
         if(! collision(xa,0))
         {

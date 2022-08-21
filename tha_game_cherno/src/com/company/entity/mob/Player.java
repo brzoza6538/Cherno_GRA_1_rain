@@ -19,8 +19,6 @@ public class Player extends Mob
     private double MouseX;
     private double MouseY;
     public double direction;
-
-    private boolean walking = false;
     private int SPEED = 2;
     private Keyboard input_k;
 
@@ -41,9 +39,9 @@ public class Player extends Mob
 
         fireRate = SpellProjectile_1.FIRE_RATE;
 
+        costume = new Basic();
         currentAnim = costume.down;
 
-        costume = new Basic();
     }
     public Player(Keyboard input)
     {
@@ -52,6 +50,10 @@ public class Player extends Mob
 
         this.input_k = input;
         fireRate = SpellProjectile_1.FIRE_RATE;
+
+        costume = new Basic();
+        currentAnim = costume.down;
+
 
     }
 
@@ -80,6 +82,10 @@ public class Player extends Mob
             else if (costumeRotation % 6 == 4) {costume = new Scafander("chest");}
             else if (costumeRotation % 6 == 5) {costume = new StolenSprite();}
 
+        }
+        else
+        {
+            //costume = new Basic();
         }
 //////////////////////////////////////////////////
 
