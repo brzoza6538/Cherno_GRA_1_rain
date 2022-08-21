@@ -8,6 +8,7 @@ import com.company.entity.projectiles.Projectile;
 import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.entity.projectiles.SpellProjectile_2;
 import com.company.graphics.AnimatedSprite;
+import com.company.graphics.Screen;
 import com.company.graphics.Sprite;
 import com.company.level.Level;
 import com.company.objects.costumes.Basic;
@@ -62,15 +63,9 @@ public abstract class Mob extends Entity
 
     }
 
-    public void update()
-    {
+    public abstract void update();
 
-    }
-
-    public void render()
-    {
-
-    }
+    public abstract void render(Screen screen);
 
     protected boolean waterCheck(int xa, int ya)
     {

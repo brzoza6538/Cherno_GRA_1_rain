@@ -1,12 +1,8 @@
 package com.company.graphics;
 
-import com.company.Main;
-import com.company.entity.mob.Player;
 import com.company.entity.projectiles.Projectile;
 import com.company.level.tile.Tile;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.Random;
 //tiles must be squares
 
@@ -168,7 +164,7 @@ public class Screen
             }
         }
     }
-    public void renderPlayer(int xp,int yp, Sprite sprite, boolean x_f,boolean y_f)
+    public void renderMob(int xp, int yp, Sprite sprite, boolean x_flip, boolean y_flip)
     {
         xp -= xOffset;
         yp -= yOffset;
@@ -177,12 +173,12 @@ public class Screen
         {
             int ya = yp + y;
             int ys = y;
-            if(y_f){ys = 31 - y;}
+            if(y_flip){ys = 31 - y;}
 
             for(int x = 0; x < 32 ; x++)
             {
                 int xs = x;
-                if(x_f){xs = 31 - x;}
+                if(x_flip){xs = 31 - x;}
                 int xa = xp + x;
 
                 if(xa <  -32|| xa >= width   || ya < -32 || ya >= height )  break; // render what is visible

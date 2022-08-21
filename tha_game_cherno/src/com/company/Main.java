@@ -1,6 +1,7 @@
 package com.company;
 
 
+import com.company.entity.mob.NPC_type0;
 import com.company.entity.mob.Player;
 import com.company.graphics.Screen;
 import com.company.graphics.Sprite;

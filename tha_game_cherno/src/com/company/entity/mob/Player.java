@@ -1,17 +1,11 @@
 package com.company.entity.mob;
 
 import com.company.Main;
-import com.company.entity.projectiles.Projectile;
 import com.company.entity.projectiles.SpellProjectile_1;
 import com.company.entity.projectiles.SpellProjectile_2;
-import com.company.entity.spawner.ParticleSpawner;
-import com.company.graphics.AnimatedSprite;
 import com.company.graphics.Screen;
-import com.company.graphics.Sprite;
-import com.company.graphics.SpriteSheet;
 import com.company.input.Keyboard;
 import com.company.input.Mouse;
-import com.company.level.Level;
 import com.company.objects.costumes.*;
 
 import java.lang.Math;
@@ -133,7 +127,7 @@ public class Player extends Mob
     private void updateShooting()
     {
         direction = Math.atan2(MouseY,MouseX);
-        System.out.println(direction);
+        //System.out.println(direction);
         if( (Mouse.getButton() == 1 || Mouse.getButton() == 3) && fireRate <= 0)
         {
 
@@ -169,7 +163,7 @@ public class Player extends Mob
      3 - W - lewo
     */
         sprite = currentAnim.getSprite();
-        screen.renderPlayer(x-16,y - 16,sprite,false,false); // zrobilees obwodke wokol mapy
+        screen.renderMob(x-16,y - 16,sprite,false,false);
 
 
     }

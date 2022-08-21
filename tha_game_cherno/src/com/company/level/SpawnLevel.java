@@ -1,5 +1,6 @@
 package com.company.level;
 
+import com.company.entity.mob.NPC_type0;
 import com.company.graphics.Screen;
 import com.company.level.tile.Tile;
 import com.company.level.tile.VoidTile;
@@ -12,12 +13,12 @@ import java.io.IOException;
 public class SpawnLevel extends Level
 {
 
-
     public SpawnLevel(String path)
     {
         super(path);
         spawnX = 30;
         spawnY = 28;
+        //System.out.println("1");
     }
 
     protected void loadLevel(String path)
@@ -39,6 +40,10 @@ public class SpawnLevel extends Level
         {
             System.out.println("Level file not loaded");
         }
+        spawnX = 30;
+        spawnY = 28;
+        add(new NPC_type0( spawnX + 2, spawnY));
+
     }
 
     protected void generateLevel()

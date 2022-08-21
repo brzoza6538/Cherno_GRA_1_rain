@@ -5,7 +5,7 @@ import com.company.entity.particle.Particle;
 import com.company.graphics.Sprite;
 import com.company.level.Level;
 
-public class Spawner extends Entity
+public abstract class Spawner extends Entity
 {
 
     public Spawner (int x, int y, Sprite particletype, int amount, Level level)
