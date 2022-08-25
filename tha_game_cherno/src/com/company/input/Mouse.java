@@ -8,7 +8,7 @@ public class Mouse implements MouseListener, MouseMotionListener, MouseWheelList
     private static int mouseY = -1;
     private static int mouseB = -1;
     private static int rotation = 0;
-    private static boolean alreadyUsed = false;
+    private static boolean alreadyUsed = true;
 
     public static int getX()
     {

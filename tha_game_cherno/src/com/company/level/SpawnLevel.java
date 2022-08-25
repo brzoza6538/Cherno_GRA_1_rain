@@ -44,6 +44,11 @@ public class SpawnLevel extends Level
         TileCoordinate mobspawn_1 = new TileCoordinate(32,28);
         add(new NPC_type0( mobspawn_1.X(), mobspawn_1.Y()));
 
+        TileCoordinate mobspawn_2 = new TileCoordinate(30,30);
+        add(new NPC_type0( mobspawn_2.X(), mobspawn_2.Y()));
+
+        TileCoordinate mobspawn_3 = new TileCoordinate(28,28);
+        add(new NPC_type0( mobspawn_3.X(), mobspawn_3.Y()));
     }
 
     protected void generateLevel()

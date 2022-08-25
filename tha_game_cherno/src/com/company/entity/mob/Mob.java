@@ -90,7 +90,7 @@ public abstract class Mob extends Entity
         }
         return water;
     }
-    private boolean collision(int xa, int ya)
+    public boolean collision(int xa, int ya)
     {
 
             boolean solid = false;
