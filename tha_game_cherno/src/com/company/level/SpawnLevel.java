@@ -39,14 +39,14 @@ public class SpawnLevel extends Level
             System.out.println("Level file not loaded");
         }
 ////////////////////spawner
-        for(int i = 0; i < 1; i++)
+        for(int i = 0; i < 5; i++)
         {
             TileCoordinate mobspawn_1 = new TileCoordinate(32 + (i*2), 28);
             add(new NPC_Chaser(mobspawn_1.X(), mobspawn_1.Y()));
         }
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 5; i++)
         {
-            TileCoordinate mobspawn_1 = new TileCoordinate(28 - (i*2), 28);
+            TileCoordinate mobspawn_1 = new TileCoordinate(28, 28);
             add(new NPC_Type0(mobspawn_1.X(), mobspawn_1.Y()));
         }
     }

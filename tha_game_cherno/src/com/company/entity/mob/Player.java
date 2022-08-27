@@ -179,6 +179,8 @@ public class Player extends Mob
     {
         return "Player";
     }
+
+
 /*
     public static double getdirection()
     {

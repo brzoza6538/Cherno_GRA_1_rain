@@ -10,7 +10,7 @@ public class Entity
 {
     protected Sprite sprite;
 
-    public int x,y;
+    protected int x,y;
     private boolean removed = false;
     protected Level level;
     protected final Random random = new Random();
@@ -44,5 +44,14 @@ public class Entity
     public Sprite getSprite()
     {
         return sprite;
+    }
+
+    public int getX()
+    {
+        return x;
+    }
+    public int getY()
+    {
+        return y;
     }
 }

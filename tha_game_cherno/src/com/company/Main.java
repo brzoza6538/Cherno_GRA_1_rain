@@ -97,7 +97,7 @@ public class Main extends Canvas implements Runnable
 
         TileCoordinate playerspawn = new TileCoordinate(level.spawnX,level.spawnY);
         player = new Player(playerspawn.X(),playerspawn.Y(), key);
-        player.init(level);
+        level.add(player);
     }
 
     public static void main(String[] args)
@@ -191,7 +191,6 @@ public class Main extends Canvas implements Runnable
     public void update()
     {
         key.update();
-        player.update();
         level.update();
     }
     public void render()
@@ -209,10 +208,9 @@ public class Main extends Canvas implements Runnable
         }
 
         screen.clear();
-        int xScroll = player.x - screen.width / 2;
-        int yScroll = player.y - screen.height / 2;
+        int xScroll = player.getX() - screen.width / 2;
+        int yScroll = player.getY() - screen.height / 2;
         level.render(xScroll, yScroll,screen);
-        player.render(screen);
 
         screen.renderFrame();
         screen.renderStats();
@@ -233,7 +231,7 @@ public class Main extends Canvas implements Runnable
         g.drawImage (image, 0, 0, getWidth(), getHeight(), null);
         g.setColor(new Color(0xFFFFFFFF, true));
         g.setFont(new Font("Verdana",1,12));
-        g.drawString("X: " + (player.x) + " Y: " + (player.y) ,(width - 40)*scale - 10,10*scale - 7); // position shower
+        g.drawString("X: " + (player.getX()) + " Y: " + (player.getY()) ,(width - 40)*scale - 10,10*scale - 7); // position shower
         g.drawString("proba1 : " + (180 /Math.PI *(Math.atan2(radY,radX))), (width - 40)*scale - 10,10*scale +7); // position shower
         g.drawString("X: " + Mouse.getX() + " Y: " + Mouse.getY() , (width - 40)*scale - 10,10*scale + 21); // position shower
         g.drawString("X: " + width*scale/2 + " Y: " +  (height*scale/2 + 6 * scale) , (width - 40)*scale - 10,10*scale + 35); // position shower
