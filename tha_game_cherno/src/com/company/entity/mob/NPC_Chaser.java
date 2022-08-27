@@ -13,7 +13,7 @@ public class NPC_Chaser extends Mob
     private int xa = 0;
     private int ya = 0;
 
-    private static final int collision_timer = 10;
+    private static final int collision_timer = 5;
     private int Xcollision = 0;
     private int Ycollision = 0;
 
