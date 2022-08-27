@@ -9,6 +9,7 @@ import com.company.objects.costumes.Scafander;
 public class NPC_Chaser extends Mob
 {
     protected int SPEED = 1;
+    protected int RANGE = 6 << 4;
     private int time =0;
     private int xa = 0;
     private int ya = 0;
@@ -32,11 +33,12 @@ public class NPC_Chaser extends Mob
         int wx = player.getX() - x;
         int wy = player.getY() - y;
 
+        int howfar = (int) Math.sqrt( wx*wx + wy*wy );
+
         if(wy <= - Math.abs(wx)) {currentAnim = costume.up;}
         else if(Math.abs(wy) < wx) {currentAnim = costume.right;}
         else if(wy >= Math.abs(wx)) {currentAnim = costume.down;}
         else if(- Math.abs(wy) > wx) {currentAnim = costume.left;}
-
 
         time++;
 
@@ -44,37 +46,36 @@ public class NPC_Chaser extends Mob
         {
             time = 0;
         }
+        //System.out.println(howfar);
+        if(howfar <= RANGE ) {
+            if (time % (random.nextInt(20) + 10) == 1) {
+                if (player.getX() > x && Xcollision == 0) {
+                    xa = 1;
+                } else if (player.getX() < x && Xcollision == 0) {
+                    xa = -1;
+                }
 
-        if(time % (random.nextInt(20) + 10) == 1)
+                if (player.getY() > y && Ycollision == 0) {
+                    ya = 1;
+                } else if (player.getY() < y && Ycollision == 0) {
+                    ya = -1;
+                }
+
+                if (Xcollision != 0) {
+                    xa = random.nextInt(3) - 1;
+                    Xcollision--;
+                }
+                if (Ycollision != 0) {
+                    ya = random.nextInt(3) - 1;
+                    Ycollision--;
+                }
+            }
+        }
+
+        else
         {
-            if(player.getX() > x && Xcollision == 0)
-            {
-                xa = 1;
-            }
-            else if(player.getX() < x && Xcollision == 0)
-            {
-                xa = -1;
-            }
-
-            if(player.getY() > y && Ycollision == 0)
-            {
-                ya = 1;
-            }
-            else if(player.getY() < y && Ycollision == 0)
-            {
-                ya = -1;
-            }
-
-            if(Xcollision != 0)
-            {
-                xa = random.nextInt(3) - 1;
-                Xcollision --;
-            }
-            if(Ycollision != 0)
-            {
-                ya= random.nextInt(3) - 1;
-                Ycollision --;
-            }
+            xa = 0;
+            ya = 0;
         }
 
 
