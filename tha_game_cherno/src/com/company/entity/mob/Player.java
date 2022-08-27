@@ -173,6 +173,12 @@ public class Player extends Mob
 
 
     }
+
+    @Override
+    public String getType()
+    {
+        return "Player";
+    }
 /*
     public static double getdirection()
     {

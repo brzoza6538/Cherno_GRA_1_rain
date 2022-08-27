@@ -1,9 +1,7 @@
 package com.company.level;
 
-import com.company.entity.mob.NPC_type0;
-import com.company.graphics.Screen;
-import com.company.level.tile.Tile;
-import com.company.level.tile.VoidTile;
+import com.company.entity.mob.NPC_Chaser;
+import com.company.entity.mob.NPC_Type0;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -40,15 +38,17 @@ public class SpawnLevel extends Level
         {
             System.out.println("Level file not loaded");
         }
-
-        TileCoordinate mobspawn_1 = new TileCoordinate(32,28);
-        add(new NPC_type0( mobspawn_1.X(), mobspawn_1.Y()));
-
-        TileCoordinate mobspawn_2 = new TileCoordinate(30,30);
-        add(new NPC_type0( mobspawn_2.X(), mobspawn_2.Y()));
-
-        TileCoordinate mobspawn_3 = new TileCoordinate(28,28);
-        add(new NPC_type0( mobspawn_3.X(), mobspawn_3.Y()));
+////////////////////spawner
+        for(int i = 0; i < 1; i++)
+        {
+            TileCoordinate mobspawn_1 = new TileCoordinate(32 + (i*2), 28);
+            add(new NPC_Chaser(mobspawn_1.X(), mobspawn_1.Y()));
+        }
+        for(int i = 0; i < 3; i++)
+        {
+            TileCoordinate mobspawn_1 = new TileCoordinate(28 - (i*2), 28);
+            add(new NPC_Type0(mobspawn_1.X(), mobspawn_1.Y()));
+        }
     }
 
     protected void generateLevel()

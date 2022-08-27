@@ -1,6 +1,5 @@
 package com.company.level;
 
-import com.company.entity.mob.NPC_type0;
 import com.company.level.tile.Tile;
 
 import java.util.Random;

@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class Entity
 {
+    protected Sprite sprite;
+
     public int x,y;
     private boolean removed = false;
     protected Level level;
@@ -37,5 +39,10 @@ public class Entity
     public void init(Level level)
     {
         this.level = level;
+    }
+
+    public Sprite getSprite()
+    {
+        return sprite;
     }
 }

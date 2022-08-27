@@ -1,5 +1,6 @@
 package com.company.graphics;
 
+import com.company.entity.mob.Mob;
 import com.company.entity.projectiles.Projectile;
 import com.company.level.tile.Tile;
 
@@ -161,6 +162,41 @@ public class Screen
                     pixels[xa + ya * width] = p.getSprite().pixels[xs + ys * p.getSpriteSize()];
                 }
 
+            }
+        }
+    }
+    public void renderMob(int xp, int yp, Mob mob)
+    {
+        xp -= xOffset;
+        yp -= yOffset;
+
+        for(int y = 0; y < 32 ; y++)
+        {
+            int ya = yp + y;
+            int ys = y;
+
+            for(int x = 0; x < 32 ; x++)
+            {
+                int xs = x;
+                int xa = xp + x;
+
+                if(xa <  -32|| xa >= width   || ya < -32 || ya >= height )  break; // render what is visible
+                if(xa < 0) xa = 0;
+                if(ya < 0) ya = 0;
+
+                int col = mob.getSprite().pixels[xs + ys * 32 ];
+                //System.out.println(x + " - " + y + " - "  + Integer.toHexString(col));
+                if(col != 0xffff00ff)
+                    pixels[xa + ya * width] = col; // - 0xFF000000 - nie moge nie renderuje nic pod spodem
+
+                if(mob.getType() == "Chaser" && col == 0xffffffff)
+                {
+                    pixels[xa + ya * width] = 0xff555555;
+                }
+                else if (mob.getType() == "Chaser" && col == 0xffD4D4D4)
+                {
+                    pixels[xa + ya * width] = 0xff6E6E6E;
+                }
             }
         }
     }

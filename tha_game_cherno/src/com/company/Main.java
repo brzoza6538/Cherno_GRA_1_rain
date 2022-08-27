@@ -1,19 +1,14 @@
 package com.company;
 
 
-import com.company.entity.mob.NPC_type0;
 import com.company.entity.mob.Player;
 import com.company.graphics.Screen;
-import com.company.graphics.Sprite;
 import com.company.input.Keyboard;
 import com.company.input.Mouse;
 import com.company.level.Level;
-import com.company.level.RandomLevel;
-import com.company.level.SpawnLevel;
 import com.company.level.TileCoordinate;
 
 import javax.swing.*;
-import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;

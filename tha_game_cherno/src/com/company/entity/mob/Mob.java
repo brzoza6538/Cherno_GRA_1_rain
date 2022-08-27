@@ -15,8 +15,6 @@ import com.company.objects.costumes.Costume;
 
 public abstract class Mob extends Entity
 {
-    protected Sprite sprite;
-
     protected int SPEED = 1;
 
     protected enum Direction
@@ -143,7 +141,10 @@ public abstract class Mob extends Entity
             level.add(new ParticleSpawner((x),(y) + 16 ,25, Sprite.particle_water ,25,level));
         }
     }
-
+    public String getType()
+    {
+        return "Mob";
+    }
 }
 
 
