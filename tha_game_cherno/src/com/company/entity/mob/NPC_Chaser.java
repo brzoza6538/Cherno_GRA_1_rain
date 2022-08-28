@@ -9,7 +9,7 @@ import com.company.objects.costumes.Scafander;
 public class NPC_Chaser extends Mob
 {
     protected int SPEED = 1;
-    protected int RANGE = 6 << 4;
+    protected int RANGE = 10 << 4;
     private int time =0;
     private int xa = 0;
     private int ya = 0;
